@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantarell&family=Raleway:wght@300;400;500;600&family=Roboto:wght@400;500;700&family=Ubuntu:wght@300;400;500&display=swap');
+
+$wrapper_width: 75%;
+$header_width: 100%;
+$header_height: 100px;
+$header_padding: 56px 104px;
+$main_color: #0c0cc2;
+$font_color: #101024;
+$font_size: 16px;
+$font_family: 'Ubuntu', sans-serif;
+$font-family-section: 'Cantarell', sans-serif;
+$font-family-sub: 'Roboto', sans-serif;
+$line_height: normal;
+$letter_spacing: -2px;
+$margin_auto: 0 auto;
+
+html, body {
+	color: $font_color; 
+	font: {
+	size: $font_size;
+	family: $font_family;
+	} 
+	line-height: $line_height;
+	letter-spacing: $letter_spacing;
+}
+
+section {
+	width: 100%;
+	height: 100vh;
+}
+
+.wrapper {
+	width: $wrapper_width;
+	height: 100%;
+	margin: $margin_auto;
+}
+
+ /******** header ********/
+.header { 
+	position: fixed;
+	width: $header_width;
+	height: $header_height;
+	padding: $header_padding;
+	display: flex;
+	justify-content: space-between;
+	.logo {
+		font-size: 1.5em;
+		color: $main_color;
+	}
+	.header-right {
+		display: flex;
+		align-items: baseline;
+		.navi {
+			display: flex; 
+			flex-direction: column;
+			padding-left: 1em;
+			.navi-icon {
+				flex-shrink: 0;
+				box-sizing: border-box;
+				width: 25px; 
+				height: 20px;
+				border: {
+					bottom:2px solid $main_color;
+					top: 2.5px solid $main_color;
+				}
+				cursor: pointer;
+			}
+		}
+		ul {
+			display: none;
+			position: absolute;
+			margin-top: 2em;
+			background-color: #fff;
+			padding-right: 2em;
+			flex-direction: column;
+			li {
+				margin: 1em 0;
+			}
+			&.on {
+				display: flex;
+			}
+		}
+	}
+}	
+
+/********* side-navi ********/
+.side-navi {
+	position: fixed;
+	right: 104px;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	flex-direction: column;
+
+	.side-btn {
+		width: 5px;
+		height: 35px;
+		background-color: $font_color;
+		margin-bottom: 10px;
+		cursor: pointer;
+		&::after {
+			display: block;
+			content:"";
+			width: 15px;
+			height: 100%;
+			transform: translateX(-7.5px);
+		}
+		&.on {
+			background-color: $main_color;
+		 }
+	}
+}
+
+/********* main ********/
+.main {
+	background: url("../img/bg-main.png");
+	.wrapper {
+		display: flex; 
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+	}
+	.title{
+		font: {
+			size: 8.5em;
+		}
+		margin-bottom: 0.1em;
+		
+	}
+	.sub-title{
+		padding-left: 0.5em;
+		color: #1c1c37;
+		letter-spacing: $letter_spacing - 3;
+		font: {
+			size: 6em;
+		}
+	}
+} 
+
+
+/********* footer ********/
+.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding: $header_padding;
+	.contact {
+		color:$main_color;
+		font-size: 1.2em;
+		font-family: $font-family-sub;
+		font-weight: 500;
+		cursor: pointer;
+	}
+	.git {
+		width: 25px;
+		height: 25px;
+		img {
+			width: 100%; 
+			height: 100%;
+			transition:transform 0.5s;
+		}
+	}
+	&:hover {
+		img {
+			transform: scale(1.1);
+		}
+	}
+}
+
+
