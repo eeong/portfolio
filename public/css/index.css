@@ -91,7 +91,12 @@ section {
     padding-left: 0.5em;
     color: #1c1c37;
     letter-spacing: -5px;
-    font-size: 6em; }
+    font-size: 6em;
+    font-weight: 400; }
+
+/********* about me ********/
+.about-me {
+  background: url("../img/bg-about-me.png"); }
 
 /********* footer ********/
 .footer {
