@@ -10,6 +10,7 @@ html, body {
 	} 
 	line-height: $line_height;
 	letter-spacing: $letter_spacing;
+	overflow-y: hidden;
 }
 
 section {
@@ -23,6 +24,14 @@ section {
 	margin: $margin_auto;
 }
 
+.title-wrap {
+	padding-top: 188px;
+	.title {
+		font: {
+			size: $font_size_title;
+		}
+	}
+}
  /******** header ********/
 .header { 
 	position: fixed;
@@ -104,7 +113,7 @@ section {
 .main {
 	background: url("../img/bg-main.png");
 	.wrapper {
-		display: flex; 
+		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: center;
@@ -130,19 +139,71 @@ section {
 /********* about me ********/
 .about-me {
 	background: url("../img/bg-about-me.png");
-	.wrapper {
-		
-	}
-	.my-desc {
-
-		.title {
-			
+	.desc {
+		margin-top: 2em;
+		font : {
+		size: $font_size_desc;
+		family:$font-family-section;
 		}
-		.desc {
-			
+	}
+	.skill-wrapper {
+		padding-top: 6em;
+		display: flex;
+		justify-content: space-between;
+		.skill-wrap {
+			display: flex;
+			flex-direction: column;
+			flex:18% 0 0;
+			.skill {
+				text-align: center;
+				font: {
+					family: $font-family-sub;
+					size: 1.5em;
+				}
+			}
+			.skill-img {
+				padding-top: 2em;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				.img-wrap {
+					flex:40% 0 0;
+				}
+			}
 		}
 	}
 }
+
+/********* front-end ********/
+.front-end {
+	background: url("../img/bg-front.png");
+	
+}
+
+
+
+/********* back-end ********/
+.back-end {
+	background: url("../img/bg-back.png");
+
+}
+
+
+
+/********* UI/UX ********/
+.ui-ux {
+	background: url("../img/bg-main.png");
+
+}
+
+
+
+
+
+
+
+
+
 
 /********* footer ********/
 .footer {

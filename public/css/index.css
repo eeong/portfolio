@@ -4,7 +4,8 @@ html, body {
   font-size: 16px;
   font-family: "Ubuntu", sans-serif;
   line-height: normal;
-  letter-spacing: -2px; }
+  letter-spacing: -2px;
+  overflow-y: hidden; }
 
 section {
   width: 100%;
@@ -14,6 +15,11 @@ section {
   width: 75%;
   height: 100%;
   margin: 0 auto; }
+
+.title-wrap {
+  padding-top: 188px; }
+  .title-wrap .title {
+    font-size: 4em; }
 
 /******** header ********/
 .header {
@@ -97,6 +103,41 @@ section {
 /********* about me ********/
 .about-me {
   background: url("../img/bg-about-me.png"); }
+  .about-me .desc {
+    margin-top: 2em;
+    font-size: 1.75em;
+    font-family: "Cantarell", sans-serif; }
+  .about-me .skill-wrapper {
+    padding-top: 6em;
+    display: flex;
+    justify-content: space-between; }
+    .about-me .skill-wrapper .skill-wrap {
+      display: flex;
+      flex-direction: column;
+      flex: 18% 0 0; }
+      .about-me .skill-wrapper .skill-wrap .skill {
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.5em; }
+      .about-me .skill-wrapper .skill-wrap .skill-img {
+        padding-top: 2em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; }
+        .about-me .skill-wrapper .skill-wrap .skill-img .img-wrap {
+          flex: 40% 0 0; }
+
+/********* front-end ********/
+.front-end {
+  background: url("../img/bg-front.png"); }
+
+/********* back-end ********/
+.back-end {
+  background: url("../img/bg-back.png"); }
+
+/********* UI/UX ********/
+.ui-ux {
+  background: url("../img/bg-main.png"); }
 
 /********* footer ********/
 .footer {
