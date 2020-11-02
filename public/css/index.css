@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Cantarell&family=Raleway:wght@300;400;500;600&family=Roboto:wght@400;500;700&family=Ubuntu:wght@300;400;500&display=swap");
 html, body {
-  color: #101024;
+  color: #0d0d16;
   font-size: 16px;
   font-family: "Ubuntu", sans-serif;
   line-height: normal;
@@ -19,7 +19,17 @@ section {
 .title-wrap {
   padding-top: 188px; }
   .title-wrap .title {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
     font-size: 4em; }
+    .title-wrap .title::before {
+      display: block;
+      content: "";
+      position: absolute;
+      width: 80%;
+      height: 130%;
+      background: url("../img/bg-main.png"); }
 
 /******** header ********/
 .header {
@@ -70,7 +80,7 @@ section {
   .side-navi .side-btn {
     width: 5px;
     height: 35px;
-    background-color: #101024;
+    background-color: #0d0d16;
     margin-bottom: 10px;
     cursor: pointer; }
     .side-navi .side-btn::after {
@@ -95,14 +105,19 @@ section {
     margin-bottom: 0.1em; }
   .main .sub-title {
     padding-left: 0.5em;
-    color: #1c1c37;
+    color: #161626;
     letter-spacing: -5px;
     font-size: 6em;
     font-weight: 400; }
+  .main .ellipse {
+    position: absolute;
+    left: 50%;
+    bottom: -12%;
+    transform: translateX(-50%); }
 
 /********* about me ********/
 .about-me {
-  background: url("../img/bg-about-me.png"); }
+  background: url("../img/shirt.png") no-repeat calc(100% + 250px) calc(100% + 300px), url("../img/bg-about-me.png"); }
   .about-me .desc {
     margin-top: 2em;
     font-size: 1.75em;
@@ -129,11 +144,11 @@ section {
 
 /********* front-end ********/
 .front-end {
-  background: url("../img/bg-front.png"); }
+  background: url("../img/statue.png") no-repeat calc(100% + 130px) calc(100% + 240px), url("../img/bg-front.png"); }
 
 /********* back-end ********/
 .back-end {
-  background: url("../img/bg-back.png"); }
+  background: url("../img/cat.png") no-repeat calc(100% + 340px) calc(100% + 260px), url("../img/bg-back.png"); }
 
 /********* UI/UX ********/
 .ui-ux {

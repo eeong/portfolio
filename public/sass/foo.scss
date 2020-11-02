@@ -3,7 +3,7 @@
 
 
 html, body {
-	color: $font_color; 
+	color: $font_color;
 	font: {
 	size: $font_size;
 	family: $font_family;
@@ -27,6 +27,17 @@ section {
 .title-wrap {
 	padding-top: 188px;
 	.title {
+		position: relative;
+		display: inline-block;
+		z-index: 10;
+		&::before {
+			display: block; 
+			content: "";
+			position: absolute;
+			width: 80%;
+			height: 130%;
+			background:url("../img/bg-main.png")
+		}
 		font: {
 			size: $font_size_title;
 		}
@@ -117,28 +128,33 @@ section {
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: center;
+		
 	}
 	.title{
 		font: {
 			size: 8.5em;
 		}
 		margin-bottom: 0.1em;
-		
 	}
 	.sub-title{
 		padding-left: 0.5em;
-		color: #1c1c37;
+		color: lighten($font_color, 5%);
 		letter-spacing: $letter_spacing - 3;
 		font: {
 			size: 6em;
 			weight: 400;
 		}
 	}
+	.ellipse {
+		position: absolute; left: 50%; bottom: -12%; transform:translateX(-50%);
+		
+	}
 } 
 
 /********* about me ********/
 .about-me {
-	background: url("../img/bg-about-me.png");
+	background: url("../img/shirt.png") no-repeat calc(100% + 250px) calc(100% + 300px), url("../img/bg-about-me.png");
+	
 	.desc {
 		margin-top: 2em;
 		font : {
@@ -176,7 +192,7 @@ section {
 
 /********* front-end ********/
 .front-end {
-	background: url("../img/bg-front.png");
+	background: url("../img/statue.png") no-repeat calc(100% + 130px) calc(100% + 240px), url("../img/bg-front.png");
 	
 }
 
@@ -184,7 +200,7 @@ section {
 
 /********* back-end ********/
 .back-end {
-	background: url("../img/bg-back.png");
+	background: url("../img/cat.png") no-repeat calc(100% + 340px) calc(100% + 260px), url("../img/bg-back.png");
 
 }
 
