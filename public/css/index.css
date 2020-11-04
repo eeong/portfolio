@@ -5,31 +5,41 @@ html, body {
   font-family: "Ubuntu", sans-serif;
   line-height: normal;
   letter-spacing: -2px;
-  overflow-y: hidden; }
+  overflow-y: hidden;
+}
 
 section {
   width: 100%;
-  height: 100vh; }
+  height: 100vh;
+  z-index: 0;
+}
 
 .wrapper {
   width: 75%;
   height: 100%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  z-index: 10;
+}
 
 .title-wrap {
-  padding-top: 188px; }
-  .title-wrap .title {
-    position: relative;
-    display: inline-block;
-    z-index: 10;
-    font-size: 4em; }
-    .title-wrap .title::before {
-      display: block;
-      content: "";
-      position: absolute;
-      width: 80%;
-      height: 130%;
-      background: url("../img/bg-main.png"); }
+  padding-top: 188px;
+}
+.title-wrap .title {
+  position: relative;
+  display: inline-block;
+  z-index: 20;
+  font-size: 4em;
+}
+.title-wrap .title::before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: -0.5em;
+  top: -0.5em;
+  width: 150px;
+  height: 150%;
+  z-index: -1;
+}
 
 /******** header ********/
 .header {
@@ -38,36 +48,49 @@ section {
   height: 100px;
   padding: 56px 104px;
   display: flex;
-  justify-content: space-between; }
-  .header .logo {
-    font-size: 1.5em;
-    color: #0c0cc2; }
-  .header .header-right {
-    display: flex;
-    align-items: baseline; }
-    .header .header-right .navi {
-      display: flex;
-      flex-direction: column;
-      padding-left: 1em; }
-      .header .header-right .navi .navi-icon {
-        flex-shrink: 0;
-        box-sizing: border-box;
-        width: 25px;
-        height: 20px;
-        border-bottom: 2px solid #0c0cc2;
-        border-top: 2.5px solid #0c0cc2;
-        cursor: pointer; }
-    .header .header-right ul {
-      display: none;
-      position: absolute;
-      margin-top: 2em;
-      background-color: #fff;
-      padding-right: 2em;
-      flex-direction: column; }
-      .header .header-right ul li {
-        margin: 1em 0; }
-      .header .header-right ul.on {
-        display: flex; }
+  justify-content: space-between;
+}
+.header .logo {
+  font-size: 1.5em;
+  color: #0c0cc2;
+}
+.header .header-right {
+  display: flex;
+  align-items: baseline;
+}
+.header .header-right .lang {
+  cursor: pointer;
+}
+.header .header-right .navi {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em;
+}
+.header .header-right .navi .navi-icon {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 25px;
+  height: 20px;
+  border-bottom: 2px solid #0c0cc2;
+  border-top: 2.5px solid #0c0cc2;
+  cursor: pointer;
+}
+.header .header-right ul {
+  display: none;
+  position: absolute;
+  margin-top: 2em;
+  background-color: #fff;
+  padding-right: 2em;
+  flex-direction: column;
+}
+.header .header-right ul li {
+  cursor: pointer;
+  user-select: none;
+  margin: 1em 0;
+}
+.header .header-right ul.on {
+  display: flex;
+}
 
 /********* side-navi ********/
 .side-navi {
@@ -76,102 +99,140 @@ section {
   top: 50%;
   transform: translateY(-50%);
   display: flex;
-  flex-direction: column; }
-  .side-navi .side-btn {
-    width: 5px;
-    height: 35px;
-    background-color: #0d0d16;
-    margin-bottom: 10px;
-    cursor: pointer; }
-    .side-navi .side-btn::after {
-      display: block;
-      content: "";
-      width: 15px;
-      height: 100%;
-      transform: translateX(-7.5px); }
-    .side-navi .side-btn.on {
-      background-color: #0c0cc2; }
+  flex-direction: column;
+}
+.side-navi .side-btn {
+  width: 5px;
+  height: 35px;
+  background-color: #0d0d16;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.side-navi .side-btn::after {
+  display: block;
+  content: "";
+  width: 15px;
+  height: 100%;
+  transform: translateX(-7.5px);
+}
+.side-navi .side-btn.on {
+  background-color: #0c0cc2;
+}
 
 /********* main ********/
 .main {
-  background: url("../img/bg-main.png"); }
-  .main .wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center; }
-  .main .title {
-    font-size: 8.5em;
-    margin-bottom: 0.1em; }
-  .main .sub-title {
-    padding-left: 0.5em;
-    color: #161626;
-    letter-spacing: -5px;
-    font-size: 6em;
-    font-weight: 400; }
-  .main .ellipse {
-    position: absolute;
-    left: 50%;
-    bottom: -12%;
-    transform: translateX(-50%); }
+  background: url("../img/bg-main.png");
+}
+.main .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.main .title {
+  font-size: 8.5em;
+  margin-bottom: 0.1em;
+}
+.main .sub-title {
+  padding-left: 0.5em;
+  color: #161626;
+  letter-spacing: -5px;
+  font-size: 6em;
+  font-weight: 400;
+}
+.main .ellipse {
+  position: absolute;
+  left: 50%;
+  bottom: -12%;
+  transform: translateX(-50%);
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+}
 
 /********* about me ********/
 .about-me {
-  background: url("../img/shirt.png") no-repeat calc(100% + 250px) calc(100% + 300px), url("../img/bg-about-me.png"); }
-  .about-me .desc {
-    margin-top: 2em;
-    font-size: 1.75em;
-    font-family: "Cantarell", sans-serif; }
-  .about-me .skill-wrapper {
-    padding-top: 6em;
-    display: flex;
-    justify-content: space-between; }
-    .about-me .skill-wrapper .skill-wrap {
-      display: flex;
-      flex-direction: column;
-      flex: 18% 0 0; }
-      .about-me .skill-wrapper .skill-wrap .skill {
-        text-align: center;
-        font-family: "Roboto", sans-serif;
-        font-size: 1.5em; }
-      .about-me .skill-wrapper .skill-wrap .skill-img {
-        padding-top: 2em;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between; }
-        .about-me .skill-wrapper .skill-wrap .skill-img .img-wrap {
-          flex: 40% 0 0; }
+  background: url("../img/shirt.png") no-repeat calc(100% + 250px) calc(100% + 300px), url("../img/bg-about-me.png");
+}
+.about-me .title::before {
+  background: url("../img/bg-main.png");
+}
+.about-me .desc {
+  margin-top: 2em;
+  font-size: 1.75em;
+  font-family: "Cantarell", sans-serif;
+}
+.about-me .skill-wrapper {
+  padding-top: 6em;
+  display: flex;
+  justify-content: space-between;
+}
+.about-me .skill-wrapper .skill-wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 18% 0 0;
+}
+.about-me .skill-wrapper .skill-wrap .skill {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5em;
+}
+.about-me .skill-wrapper .skill-wrap .skill-img {
+  padding-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.about-me .skill-wrapper .skill-wrap .skill-img .img-wrap {
+  flex: 40% 0 0;
+}
 
 /********* front-end ********/
 .front-end {
-  background: url("../img/statue.png") no-repeat calc(100% + 130px) calc(100% + 240px), url("../img/bg-front.png"); }
+  background: url("../img/statue.png") no-repeat calc(100% + 130px) calc(100% + 240px), url("../img/bg-front.png");
+}
+.front-end .title::before {
+  background: url("../img/bg-front.png");
+}
 
 /********* back-end ********/
 .back-end {
-  background: url("../img/cat.png") no-repeat calc(100% + 340px) calc(100% + 260px), url("../img/bg-back.png"); }
+  background: url("../img/cat.png") no-repeat calc(100% + 340px) calc(100% + 260px), url("../img/bg-back.png");
+}
+.back-end .title::before {
+  background: url("../img/bg-about-me.png");
+}
 
 /********* UI/UX ********/
 .ui-ux {
-  background: url("../img/bg-main.png"); }
+  background: url("../img/bg-main.png");
+}
+.ui-ux .title::before {
+  background: url("../img/bg-back.png");
+}
 
 /********* footer ********/
 .footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  padding: 56px 104px; }
-  .footer .contact {
-    color: #0c0cc2;
-    font-size: 1.2em;
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    cursor: pointer; }
-  .footer .git {
-    width: 25px;
-    height: 25px; }
-    .footer .git img {
-      width: 100%;
-      height: 100%;
-      transition: transform 0.5s; }
-  .footer:hover img {
-    transform: scale(1.1); }
+  padding: 56px 104px;
+}
+.footer .contact {
+  color: #0c0cc2;
+  font-size: 1.2em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+}
+.footer .git {
+  width: 25px;
+  height: 25px;
+}
+.footer .git img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+}
+.footer:hover img {
+  transform: scale(1.1);
+}

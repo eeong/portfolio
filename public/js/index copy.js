@@ -45,7 +45,6 @@ function onSectionWheel(e){
 		$("html").stop().animate({scrollTop: nowPos-winHei},500,function(){
 		pagerNow = pagerNow == 0 ? 0 : pagerNow -1;
 		pagerAni(pagerNow);
-		
 		});
 		return false;
 	}

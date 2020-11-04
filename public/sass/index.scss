@@ -1,4 +1,5 @@
 @import "style-portfolio";
+@import 'animation';
 
 
 
@@ -16,12 +17,14 @@ html, body {
 section {
 	width: 100%;
 	height: 100vh;
+	z-index: 0;
 }
 
 .wrapper {
 	width: $wrapper_width;
 	height: 100%;
 	margin: $margin_auto;
+	z-index: 10;
 }
 
 .title-wrap {
@@ -29,20 +32,24 @@ section {
 	.title {
 		position: relative;
 		display: inline-block;
-		z-index: 10;
+		z-index: 20;
 		&::before {
 			display: block; 
 			content: "";
 			position: absolute;
-			width: 80%;
-			height: 130%;
-			background:url("../img/bg-main.png")
+			left: -0.5em;
+			top: -0.5em;
+			width: 150px;
+			height: 150%;
+			z-index: -1;
+			
 		}
 		font: {
 			size: $font_size_title;
 		}
 	}
 }
+
  /******** header ********/
 .header { 
 	position: fixed;
@@ -58,6 +65,9 @@ section {
 	.header-right {
 		display: flex;
 		align-items: baseline;
+		.lang {
+			cursor: pointer;
+		}
 		.navi {
 			display: flex; 
 			flex-direction: column;
@@ -82,8 +92,9 @@ section {
 			padding-right: 2em;
 			flex-direction: column;
 			li {
+				cursor: pointer;
+				user-select: none;
 				margin: 1em 0;
-				
 			}
 			&.on {
 				display: flex;
@@ -147,14 +158,16 @@ section {
 	}
 	.ellipse {
 		position: absolute; left: 50%; bottom: -12%; transform:translateX(-50%);
-		
+		@include aniScale;
 	}
 } 
 
 /********* about me ********/
 .about-me {
 	background: url("../img/shirt.png") no-repeat calc(100% + 250px) calc(100% + 300px), url("../img/bg-about-me.png");
-	
+	.title::before {
+		background: url("../img/bg-main.png");
+	}
 	.desc {
 		margin-top: 2em;
 		font : {
@@ -193,7 +206,9 @@ section {
 /********* front-end ********/
 .front-end {
 	background: url("../img/statue.png") no-repeat calc(100% + 130px) calc(100% + 240px), url("../img/bg-front.png");
-	
+	.title::before {
+		background: url("../img/bg-front.png");
+	}
 }
 
 
@@ -201,7 +216,9 @@ section {
 /********* back-end ********/
 .back-end {
 	background: url("../img/cat.png") no-repeat calc(100% + 340px) calc(100% + 260px), url("../img/bg-back.png");
-
+	.title::before {
+		background: url("../img/bg-about-me.png");
+	}
 }
 
 
@@ -209,7 +226,9 @@ section {
 /********* UI/UX ********/
 .ui-ux {
 	background: url("../img/bg-main.png");
-
+	.title::before {
+		background: url("../img/bg-back.png");
+	}
 }
 
 
