@@ -71,7 +71,7 @@ section {
   box-sizing: border-box;
   width: 25px;
   height: 20px;
-  border-bottom: 2px solid #0c0cc2;
+  border-bottom: 2.5px solid #0c0cc2;
   border-top: 2.5px solid #0c0cc2;
   cursor: pointer;
 }
@@ -196,6 +196,7 @@ section {
 }
 .front-end .front-slide-stage {
   position: relative;
+  overflow: hidden;
 }
 .front-end .front-slide-wrap {
   display: flex;
@@ -205,13 +206,14 @@ section {
 }
 .front-end .front-slide-wrap .front-slide {
   position: relative;
-  transition: transform 0.5s;
   perspective: 300px;
   z-index: 15;
 }
 .front-end .front-slide-wrap .front-slide .slide-image {
   transition: all 0.5s;
+  transform-origin: center top;
   position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .front-end .front-slide-wrap .front-slide .slide-image::after {
   display: block;
@@ -245,6 +247,7 @@ section {
   opacity: 0;
 }
 .front-end .front-slide-wrap .front-slide .slide-desc {
+  display: none;
   text-align: center;
   font-family: "Cantarell", sans-serif;
   font-size: 1.5em;
@@ -255,7 +258,6 @@ section {
 }
 .front-end .front-slide-wrap .front-slide.slide-left .slide-image {
   transform: rotateY(-20deg) scaleX(0.6);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .front-end .front-slide-wrap .front-slide.slide-center {
   flex: 33.3333% 0 0;
@@ -280,10 +282,12 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 2;
+  z-index: 30;
 }
 .front-end .bt-wrap .bt {
   cursor: pointer;
+  z-index: 100;
+  display: inline-block;
 }
 
 /********* back-end ********/

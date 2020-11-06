@@ -79,7 +79,7 @@ section {
 				width: 25px; 
 				height: 20px;
 				border: {
-					bottom:2px solid $main_color;
+					bottom:2.5px solid $main_color;
 					top: 2.5px solid $main_color;
 				}
 				cursor: pointer;
@@ -213,6 +213,7 @@ section {
 	}
 	.front-slide-stage {
 		position: relative;
+		overflow: hidden;
 	}
 	.front-slide-wrap {
 		display: flex;
@@ -222,12 +223,13 @@ section {
 		
 		.front-slide {
 			position: relative;
-			transition: transform 0.5s; 
 			perspective: 300px;
 			z-index: 15;
 			.slide-image {
 				transition:all 0.5s;
+				transform-origin: center top;
 				position: relative;
+				box-shadow: $section_shadow;
 				&::after {
 					display: block;
 					content:"";
@@ -262,6 +264,7 @@ section {
 				opacity: 0;
 			}
 			.slide-desc {
+				display: none;
 				text-align: center;
 				font-family: $font-family-section;
 				font-size: 1.5em;
@@ -273,7 +276,6 @@ section {
 			flex: 16.6666% 0 0;
 			.slide-image {
 				transform: rotateY(-20deg) scaleX(0.6);
-				box-shadow: $section_shadow;
 			}
 		}
 		.front-slide.slide-center {
@@ -300,9 +302,11 @@ section {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		z-index: 2;
+		z-index: 30;
 		.bt {
 			cursor: pointer;
+			z-index: 100;
+			display: inline-block;
 		}
 	}
 }
