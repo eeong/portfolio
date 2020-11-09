@@ -22,43 +22,52 @@ function onNaviIconClick(){
 function onNaviClick(){
 	pagerNow = $(this).index();
 	pagerAni(pagerNow);
-	$("html").stop().animate({scrollTop: winHei*pagerNow},500);
 }
 
 function onSideClick(){
 	pagerNow = $(this).index();
 	pagerAni(pagerNow);	
-	$("html").stop().animate({scrollTop: winHei*pagerNow},500);
 }
 
 function pagerAni(pagerNow){
 	var $sideBtn = $(".side-navi .side-btn");
 	$sideBtn.removeClass("on");
 	$sideBtn.eq(pagerNow).addClass("on");
+	$(".section-wrapper").stop().css({top: -( winHei*pagerNow)+"px"},500)
 }
 
+var wheeldelta = {
+	x: 0,
+	y: 0
+};
+var wheeling;
+
 function onSectionWheel(e){
-	e.preventDefault();
-	e.stopPropagation();
-	$("section").each(function(i){
-	$(this).attr("section-hei",i*winHei);
-	});
-	var nowPos = parseInt($(this).attr("section-hei"));
-	if (e.originalEvent.wheelDelta > 0){
-			$("html").stop().animate({scrollTop: nowPos-winHei},500,function(){
-			pagerNow = pagerNow == 0 ? 0 : pagerNow -1;
-			pagerAni(pagerNow);
-		});
-		return false;
-	}
-		else if (e.originalEvent.wheelDelta < 0){
-		$("html").stop().animate({scrollTop: nowPos+winHei},500,function(){
-		pagerNow = pagerNow == pagerLast ? 4 : pagerNow + 1;
-		pagerAni(pagerNow);
-		});
-		return false;
+			clearTimeout(wheeling);
+			wheeling = setTimeout(function() {
+				console.log('stop wheeling!');
+				wheeling = undefined;
+				wheeldelta.x = 0;
+				wheeldelta.y = 0;
+			}, 250);
+		
+			wheeldelta.x += e.originalEvent.wheelDeltaX;
+			wheeldelta.y += e.originalEvent.wheelDeltaY;
+			console.log(wheeldelta,e.originalEvent);
+	
+		setTimeout(function(){
+		if (wheeldelta.y  > 0){
+				pagerNow = pagerNow == 0 ? 0 : pagerNow -1;
+				pagerAni(pagerNow);
+				setTimeout(function(){return false},1000);
 		}
+			else if (wheeldelta.y  < 0){
+				pagerNow = pagerNow == pagerLast ? 4 : pagerNow + 1;
+				pagerAni(pagerNow);
+				setTimeout(function(){return false},1000);
+			}}.bind(this),0)
 }
+
 function frontAni(a){
 	$(".front-slide-wrap").stop().animate({left: -slideWid*frontNow+"px"});
 }

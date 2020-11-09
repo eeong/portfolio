@@ -13,6 +13,10 @@ html, body {
 	letter-spacing: $letter_spacing;
 	overflow-y: hidden;
 }
+.section-wrapper {
+	position: absolute;
+	transition: all 1s cubic-bezier(0.755, 0.05, 0.555, 0.755);
+}
 
 section {
 	width: 100%;
@@ -54,6 +58,7 @@ section {
  /******** header ********/
 .header { 
 	position: fixed;
+	z-index: 100;
 	width: $header_width;
 	height: $header_height;
 	padding: $header_padding;
@@ -107,6 +112,7 @@ section {
 /********* side-navi ********/
 .side-navi {
 	position: fixed;
+	z-index: 100;
 	right: 104px;
 	top: 50%;
 	transform: translateY(-50%);
