@@ -43,29 +43,24 @@ var wheeldelta = {
 var wheeling;
 
 function onSectionWheel(e){
-			clearTimeout(wheeling);
-			wheeling = setTimeout(function() {
-				console.log('stop wheeling!');
-				wheeling = undefined;
-				wheeldelta.x = 0;
-				wheeldelta.y = 0;
-			}, 250);
-		
-			wheeldelta.x += e.originalEvent.wheelDeltaX;
-			wheeldelta.y += e.originalEvent.wheelDeltaY;
-			console.log(wheeldelta,e.originalEvent);
-	
-		setTimeout(function(){
-		if (wheeldelta.y  > 0){
-				pagerNow = pagerNow == 0 ? 0 : pagerNow -1;
-				pagerAni(pagerNow);
-				setTimeout(function(){return false},1000);
-		}
-			else if (wheeldelta.y  < 0){
-				pagerNow = pagerNow == pagerLast ? 4 : pagerNow + 1;
-				pagerAni(pagerNow);
-				setTimeout(function(){return false},1000);
-			}}.bind(this),0)
+	clearTimeout(wheeling);
+		wheeling = setTimeout(function() {
+		wheeldelta.x += e.originalEvent.wheelDeltaX;
+		wheeldelta.y += e.originalEvent.wheelDeltaY;
+			if (wheeldelta.y  > 0){
+					pagerNow = pagerNow == 0 ? 0 : pagerNow -1;
+					pagerAni(pagerNow);
+					setTimeout(function(){return false},1000);
+			}
+				else if (wheeldelta.y  < 0){
+					pagerNow = pagerNow == pagerLast ? 4 : pagerNow + 1;
+					pagerAni(pagerNow);
+					setTimeout(function(){return false},1000);
+				}
+		wheeling = undefined;
+		wheeldelta.x = 0;
+		wheeldelta.y = 0;
+	}, 250);
 }
 
 function frontAni(a){
