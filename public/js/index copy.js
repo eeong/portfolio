@@ -6,6 +6,7 @@ var winHei = $(window).height();
 var slideWid = $(".slide-left").outerWidth();
 var frontNow = 1;
 var frontLast = $(".front-slide").length ;
+var wheeling; //wheel event settimeout
 /************ FUNCTION ***********/ 
 
 function docInit(){
@@ -22,43 +23,35 @@ function onNaviIconClick(){
 function onNaviClick(){
 	pagerNow = $(this).index();
 	pagerAni(pagerNow);
-	$("html").stop().animate({scrollTop: winHei*pagerNow},500);
 }
 
 function onSideClick(){
 	pagerNow = $(this).index();
 	pagerAni(pagerNow);	
-	$("html").stop().animate({scrollTop: winHei*pagerNow},500);
 }
 
 function pagerAni(pagerNow){
 	var $sideBtn = $(".side-navi .side-btn");
 	$sideBtn.removeClass("on");
 	$sideBtn.eq(pagerNow).addClass("on");
+	$(".section-wrapper").stop().css({top: -( winHei*pagerNow)+"px"},500)
 }
 
 function onSectionWheel(e){
-		setTimeout(function(){
-		$("section").each(function(i){
-		$(this).attr("section-hei",i*winHei);
-		});
-		var nowPos = parseInt($(this).attr("section-hei"));
-		console.log(nowPos )
-		if (e.originalEvent.wheelDelta > 0){
-				$("html").stop().animate({scrollTop: nowPos-winHei},500,function(){
-				pagerNow = pagerNow == 0 ? 0 : pagerNow -1;
-				pagerAni(pagerNow);
-			});
-			return false;
-		}
-			else if (e.originalEvent.wheelDelta < 0){
-			$("")
-			$("html").stop().animate({scrollTop: nowPos+winHei},500,function(){
-			pagerNow = pagerNow == pagerLast ? 4 : pagerNow + 1;
-			pagerAni(pagerNow);
-			});
-			return false;
-			}}.bind(this),0)
+	clearTimeout(wheeling);
+		wheeling = setTimeout(function() {
+		delta = e.originalEvent.wheelDeltaY;
+			if (delta  > 0){
+					pagerNow = pagerNow == 0 ? 0 : pagerNow -1;
+					pagerAni(pagerNow);
+					setTimeout(function(){return false},700);
+			}
+				else if (delta  < 0){
+					pagerNow = pagerNow == pagerLast ? 4 : pagerNow + 1;
+					pagerAni(pagerNow);
+					setTimeout(function(){return false},700);
+				}
+		}, 250);
 }
 
 function frontAni(a){

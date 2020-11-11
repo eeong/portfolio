@@ -3,9 +3,12 @@
 var pagerNow = 0;
 var pagerLast = $(".side-navi .side-btn").length-1;
 var winHei = $(window).height();
-var slideWid = $(".slide-left").outerWidth();
+var slideWid;
 var frontNow = 1;
 var frontLast = $(".front-slide").length ;
+var wheeling; //wheel event settimeout 
+var $frontSlides = [];
+var $frontSlide;
 /************ FUNCTION ***********/ 
 
 function docInit(){
@@ -36,76 +39,75 @@ function pagerAni(pagerNow){
 	$(".section-wrapper").stop().css({top: -( winHei*pagerNow)+"px"},500)
 }
 
-var wheeldelta = {
-	x: 0,
-	y: 0
-};
-var wheeling;
-
 function onSectionWheel(e){
 	clearTimeout(wheeling);
 		wheeling = setTimeout(function() {
-		wheeldelta.x += e.originalEvent.wheelDeltaX;
-		wheeldelta.y += e.originalEvent.wheelDeltaY;
-			if (wheeldelta.y  > 0){
+		delta = e.originalEvent.wheelDeltaY;
+			if (delta  > 0){
 					pagerNow = pagerNow == 0 ? 0 : pagerNow -1;
 					pagerAni(pagerNow);
-					setTimeout(function(){return false},1000);
+					setTimeout(function(){return false},700);
 			}
-				else if (wheeldelta.y  < 0){
+				else if (delta  < 0){
 					pagerNow = pagerNow == pagerLast ? 4 : pagerNow + 1;
 					pagerAni(pagerNow);
-					setTimeout(function(){return false},1000);
+					setTimeout(function(){return false},700);
 				}
-		wheeling = undefined;
-		wheeldelta.x = 0;
-		wheeldelta.y = 0;
-	}, 250);
+		}, 250);
 }
 
-function frontAni(a){
+function frontAni(){
 	$(".front-slide-wrap").stop().animate({left: -slideWid*frontNow+"px"});
 }
 
-function frontInit(direc){
-	var $slideLeft = $(".front-slide").eq(0).clone();
-	var $slideCenter = $(".front-slide").eq(1).clone();
-	var $slideRight = $(".front-slide").eq(2).clone();
-	var frontSlide = [$slideLeft, $slideCenter, $slideRight];
-	if (direc == "left"){
-		$(".front-slide").eq(2).remove();
-		$(frontSlide[2]).prependTo(".front-slide-wrap");
-	}
-	else if(direc == "right"){
-		$(".front-slide").eq(0).remove();
-		$(frontSlide[0]).appendTo(".front-slide-wrap");
-	}
-	frontNow=1;
-	$(".front-slide-wrap").css({left: 0+"px"});
+
+
+
+function frontInit(){
+	$frontSlide = $(".front-slide")
+	$($frontSlides[frontNow == 0 ? 2 : frontNow - 1].clone()).appendTo($(".front-slide-wrap"));
+	$($frontSlides[frontNow == 2 ? 0 : frontNow + 1].clone()).prependTo($(".front-slide-wrap"));
+	$frontSlide.eq(1).addClass("slide-left");
+	$frontSlide.eq(2).addClass("slide-center");
+	$frontSlide.eq(3).addClass("slide-right");
+
+	slideWid = $(".slide-left").outerWidth();
 }
+	
 
 function onFrontClickLeft(){
 	frontNow = frontNow == 0 ? 2 : frontNow - 1; 
 	frontAni()
-	$(".front-slide").eq(1).css({"flex":"33.3333% 0 0"}).children(".slide-image").css({"transform": "rotateY(0) scaleX(1) translateY(-60px)"});
-	$(".front-slide").eq(2).css("flex","16.6666% 0 0").children(".slide-image").css({"transform": "rotateY(20deg) scaleX(0.6) translateY(0)"});
-	frontInit('left')
+
+	
 }
 
 function onFrontClickRight(){
 	frontNow = frontNow == 2 ? 0 : frontNow + 1; 
 	frontAni()
-	$(".front-slide").eq(2).css("flex","16.6666% 0 0").children(".slide-image").css({"transform": "rotateY(-20deg) scaleX(0.6) translateY(0)"});
-	$(".front-slide").eq(3).css({"flex":"33.3333% 0 0"}).children(".slide-image").css({"transform": "rotateY(0) scaleX(1) translateY(-60px)"});
-	frontInit('right')
+	
 }
 
+function onGetSlide(r){
+	var html = "";
+	for (var i in r.slides ){
+		html =  '<div class="front-slide ">';
+		html += '<div class="slide-image">'+r.slides[i].id+'<img src="'+r.slides[i].src+'" alt="slide" class="w-100">';
+		html += '<div class="slide-title">'+r.slides[i].title+'</div>';
+		html += '</div>';
+		html += '<div class="slide-desc">'+r.slides[i].desc+'</div>';
+		html += '</div>';
+		$frontSlides.push($(html).appendTo($(".front-slide-wrap")));
+	}
+	frontInit();
+}
 
 /************ EXECUTE ***********/ 
 $(".navi-icon").on("click",onNaviIconClick);
 $(".navi li").on("click",onNaviClick)
 $(".side-btn").on("click",onSideClick);
 $("section").on("mousewheel",onSectionWheel);
-$(window).one("load", docInit());
+$(window).one("load", docInit);
 $(".front-end .bt-left").on("click",onFrontClickLeft);
 $(".front-end .bt-right").on("click",onFrontClickRight);
+$.get('../json/slide.json', onGetSlide);

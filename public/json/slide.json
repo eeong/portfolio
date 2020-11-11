@@ -1,0 +1,8 @@
+{
+	"slides" : [
+		{"id": 1, "class": "" , "src": "../img/slide-1.png", "title": "Shop", "desc":"Project Stacks: HTML5 CSS3 jQuery ES6 Vue.js"},
+		{"id": 2, "class": "" , "src": "../img/slide-1.png", "title": "Shop", "desc":"Project Stacks: HTML5 CSS3 jQuery ES6 Vue.js"},
+		{"id": 3, "class": "" , "src": "../img/slide-1.png", "title": "Shop", "desc":"Project Stacks: HTML5 CSS3 jQuery ES6 Vue.js"}
+	]
+			
+}

@@ -15,7 +15,7 @@ html, body {
 }
 .section-wrapper {
 	position: absolute;
-	transition: all 1s cubic-bezier(0.755, 0.05, 0.555, 0.755);
+	transition: all 0.7s cubic-bezier(0.555, 0.15, 0.555, 0.755);
 }
 
 section {
@@ -231,6 +231,7 @@ section {
 			position: relative;
 			perspective: 300px;
 			z-index: 15;
+			transition:all 0.5s;
 			.slide-image {
 				transition:all 0.5s;
 				transform-origin: center top;
