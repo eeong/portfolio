@@ -32,6 +32,21 @@ section {
 	z-index: 10;
 }
 
+#lang-ko {
+	display: none;
+	font-family: $font-family-kr;
+	&.active {
+		display: block;
+	}
+}
+
+#lang-en {
+	display: none;
+	&.active {
+		display: block;
+	}
+}
+
 .title-wrap {
 	padding-top: 188px;
 	.title {
@@ -71,7 +86,7 @@ section {
 	.header-right {
 		display: flex;
 		align-items: baseline;
-		.lang {
+		.lang-bt {
 			cursor: pointer;
 		}
 		.navi {
@@ -150,9 +165,14 @@ section {
 	}
 	.title{
 		font: {
-			size: 8.5em;
+			size: $font_size_title*2;
 		}
 		margin-bottom: 0.1em;
+		&#lang-ko {
+			font-size: $font_size_title+2em;
+			font-weight: 500;
+			letter-spacing: $letter_spacing - 5;
+		}
 	}
 	.sub-title{
 		padding-left: 0.5em;
@@ -161,6 +181,11 @@ section {
 		font: {
 			size: 6em;
 			weight: 400;
+		}
+		&#lang-ko {
+			margin-left: 3em;
+			font-weight: 300;
+			letter-spacing: $letter_spacing - 6;
 		}
 	}
 	.ellipse {

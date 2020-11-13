@@ -12,7 +12,6 @@ var wheeling; //wheel event settimeout
 function docInit(){
 	pagerAni(0);	
 	$("html").stop().animate({scrollTop: 0},500);
-	$(".front-slide-wrap").stop().css({left: -slideWid*frontNow+"px"});
 }
 
 /************ CALLBACK ***********/ 
@@ -54,7 +53,7 @@ function onSectionWheel(e){
 		}, 250);
 }
 
-function frontAni(a){
+function frontAni(){
 	$(".front-slide-wrap").stop().animate({left: -slideWid*frontNow+"px"});
 }
 

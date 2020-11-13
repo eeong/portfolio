@@ -6,7 +6,6 @@ var wheeling; //wheel event settimeout
 var winHei;
 var slideWid; //front-slide animation width 
 var frontNow; 
-var frontLast = $(".front-slide").length ;
 var $frontSlides = []; //front-slide json clone array(j-query)
 var $frontSlide; // $(".front-slide")
 /************ FUNCTION ***********/ 
@@ -17,7 +16,6 @@ function docInit(){
 	onResizeWindow()
 	pagerAni(0);
 	$("html").stop().animate({scrollTop: 0},500);
-	$(".front-slide-wrap").stop().css({left: -slideWid*frontNow+"px"});
 }
 
 function onResizeWindow(){
@@ -65,19 +63,31 @@ function onSectionWheel(e){
 }
 
 function frontAni(){
-	$(".front-slide-wrap").stop().animate({left: -slideWid*frontNow+"px"});
-	frontInit();
-}
-
-
-function frontInit(){
-	frontNow = 1;
-	$frontSlide = $(".front-slide")
-//	$($frontSlides[frontNow == 0 ? 2 : frontNow - 1]).clone().appendTo($(".front-slide-wrap").eq(0).remove());
-//	$($frontSlides[frontNow == 2 ? 0 : frontNow + 1]).clone().prependTo($(".front-slide-wrap").eq(4).remove());
 	$frontSlide.eq(1).addClass("slide-left");
 	$frontSlide.eq(2).addClass("slide-center");
 	$frontSlide.eq(3).addClass("slide-right");
+	$(".front-slide-wrap").stop().animate({left: -slideWid*frontNow+"px"}, 500);
+	frontInit()
+
+}
+
+
+function frontInit(direc){
+	$frontSlide = $(".front-slide")
+	$(".front-slide-wrap").css({left: -slideWid+"px"});
+	
+	if(direc == "right") {
+		$frontSlide.eq(0).remove();
+		$($frontSlides[frontNow == 0 ? 2 : frontNow - 1]).clone().addClass('1').appendTo($(".front-slide-wrap"));
+	}
+	else if(direc == "left") {
+		$frontSlide.eq(4).remove();
+			$($frontSlides[frontNow == 2 ? 0 : frontNow + 1]).clone().addClass("2").prependTo($(".front-slide-wrap"));
+	}
+	slideWid = 254;//$(".slide-left").outerWidth();
+	console.log(frontNow)
+	
+
 	
 }
 	
@@ -93,9 +103,10 @@ function onFrontClickRight(){
 }
 
 function onGetSlide(r){
+	frontNow = 1;
 	var html = "";
 	for (var i in r.slides ){
-		html =  '<div class="front-slide ">';
+		html =  '<div class="front-slide">';
 		html += '<div class="slide-image">'+r.slides[i].id+'<img src="'+r.slides[i].src+'" alt="slide" class="w-100">';
 		html += '<div class="slide-title">'+r.slides[i].title+'</div>';
 		html += '</div>';
@@ -103,10 +114,18 @@ function onGetSlide(r){
 		html += '</div>';
 		$frontSlides.push($($(html).appendTo($(".front-slide-wrap"))));
 	}
-	$($frontSlides[frontNow == 0 ? 2 : frontNow - 1]).clone().appendTo($(".front-slide-wrap"));
-	$($frontSlides[frontNow == 2 ? 0 : frontNow + 1]).clone().prependTo($(".front-slide-wrap"));
+	$($frontSlides[0]).clone().appendTo($(".front-slide-wrap"));
+	$($frontSlides[2]).clone().prependTo($(".front-slide-wrap"));
 	frontInit();
 }
+
+function onClickLang(){
+	$("html").stop().animate({'opacity':0.5},500,function(){
+		$("[id |= lang]").toggleClass("active");
+		$("html").stop().animate({'opacity':1},500,function(){	
+	});
+	});
+	}
 
 /************ EXECUTE ***********/ 
 $(".navi-icon").on("click",onNaviIconClick);
@@ -116,6 +135,7 @@ $("section").on("mousewheel",onSectionWheel);
 $(".front-end .bt-left").on("click",onFrontClickLeft);
 $(".front-end .bt-right").on("click",onFrontClickRight);
 $.get('../json/slide.json', onGetSlide);
+$(".lang-bt").on("click", onClickLang);
 
 $(window).one("load", docInit);
 $(window).on("resize", onResizeWindow).trigger("resize");
