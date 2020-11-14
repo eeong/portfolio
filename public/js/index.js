@@ -12,10 +12,10 @@ var $frontSlide; // $(".front-slide")
 
 function docInit(){
 	pagerNow = 0;
-	frontNow = 1;
 	onResizeWindow()
 	pagerAni(0);
 	$("html").stop().animate({scrollTop: 0},500);
+	frontAni();
 }
 
 function onResizeWindow(){
@@ -62,48 +62,60 @@ function onSectionWheel(e){
 		}, 250);
 }
 
-function frontAni(){
-	$frontSlide.eq(1).addClass("slide-left");
-	$frontSlide.eq(2).addClass("slide-center");
-	$frontSlide.eq(3).addClass("slide-right");
-	$(".front-slide-wrap").stop().animate({left: -slideWid*frontNow+"px"}, 500);
-	frontInit()
+function frontReset(){
+	frontNow = 1;
+	slideWid = 254;
+	$(".front-slide-wrap").css("left", "-254px");
+}
 
+function frontAni(direc){
+	//$frontSlide.eq(1).addClass("slide-left");
+	//$frontSlide.eq(2).addClass("slide-center");
+	//	$frontSlide.eq(3).addClass("slide-right");
+	slideWid = 254;
+	console.log(frontNow)
+	$(".front-slide-wrap").animate({"left": -frontNow*slideWid +"px"});
+	
+	
+	
 }
 
 
 function frontInit(direc){
 	$frontSlide = $(".front-slide")
-	$(".front-slide-wrap").css({left: -slideWid+"px"});
+	frontNow = 1;	
+	slideWid = 254;
 	
+/* 	setTimeout(() => {
+		console.log(direc)
+		$(".front-slide-wrap").css("left", "-254px");
+	}, 0); */
+
 	if(direc == "right") {
-		$frontSlide.eq(0).remove();
-		$($frontSlides[frontNow == 0 ? 2 : frontNow - 1]).clone().addClass('1').appendTo($(".front-slide-wrap"));
+		$frontSlide.eq(4).remove();
+		$($frontSlide.eq(0)).clone().appendTo($(".front-slide-wrap"));
 	}
 	else if(direc == "left") {
-		$frontSlide.eq(4).remove();
-			$($frontSlides[frontNow == 2 ? 0 : frontNow + 1]).clone().addClass("2").prependTo($(".front-slide-wrap"));
+		console.log(direc)
+		$frontSlide.eq(0).remove();
+		$($frontSlide.eq(4)).clone().prependTo($(".front-slide-wrap"));
 	}
-	slideWid = 254;//$(".slide-left").outerWidth();
-	console.log(frontNow)
-	
-
 	
 }
 	
-
 function onFrontClickLeft(){
-	frontNow = frontNow == 0 ? 2 : frontNow - 1; 
-	frontAni()
+	frontNow = 0; 
+	frontAni("left");
+	frontInit("left");
 }
 
 function onFrontClickRight(){
-	frontNow = frontNow == 2 ? 0 : frontNow + 1; 
-	frontAni()
+	frontNow = 2; 
+	frontAni("right");
+	frontInit(right);
 }
 
 function onGetSlide(r){
-	frontNow = 1;
 	var html = "";
 	for (var i in r.slides ){
 		html =  '<div class="front-slide">';
@@ -116,7 +128,7 @@ function onGetSlide(r){
 	}
 	$($frontSlides[0]).clone().appendTo($(".front-slide-wrap"));
 	$($frontSlides[2]).clone().prependTo($(".front-slide-wrap"));
-	frontInit();
+	frontReset();
 }
 
 function onClickLang(){
