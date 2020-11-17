@@ -63,43 +63,27 @@ function onSectionWheel(e){
 }
 
 function frontAni(direc){
+	let n = direc == "right" ? 2 : 0;
+	setTimeout(function(){
+	$frontSlide.eq(n).removeClass("slide-center slide-right").addClass("slide-left");
+	$frontSlide.eq(n+1).removeClass("slide-right slide-left").addClass("slide-center");
+	$frontSlide.eq(n+2).removeClass("slide-center slide-left").addClass("slide-right");
+	$(".front-slide-wrap").animate({"left": -frontNow*slideWid +"px"}, 500, frontInit(direc));
+	},0);
 	
-	if(direc == "right") {
-		$frontSlide.eq(2).removeClass("slide-center slide-right").addClass("slide-left");
-		$frontSlide.eq(3).removeClass("slide-right slide-left").addClass("slide-center");
-		$frontSlide.eq(4).removeClass("slide-center slide-left").addClass("slide-right");
-	}
-	else if(direc == "left") {
-		$frontSlide.eq(0).removeClass("slide-center slide-right").addClass("slide-left");
-		$frontSlide.eq(1).removeClass("slide-right slide-left").addClass("slide-center");
-		$frontSlide.eq(2).removeClass("slide-center slide-left").addClass("slide-right");
-	}
-	
-	$(".front-slide-wrap").animate({"left": -frontNow*slideWid +"px"},500,function(){
-		frontInit(direc);
-		
-	});
 }
 
 function front3d(direc){
-	if(direc == "left"){
-		$frontSlide.eq(0).removeClass("slide-center slide-right").addClass("slide-left");
-		$frontSlide.eq(1).removeClass("slide-right slide-left").addClass("slide-center");
-		$frontSlide.eq(2).removeClass("slide-center slide-left").addClass("slide-right");
-	}
-	else if(direc == "right"){
-		$frontSlide.eq(2).removeClass("slide-center slide-right").addClass("slide-left");
-		$frontSlide.eq(3).removeClass("slide-right slide-left").addClass("slide-center");
-		$frontSlide.eq(4).removeClass("slide-center slide-left").addClass("slide-right");
-	}
-	else{
-		$frontSlide.eq(1).removeClass("slide-center slide-right").addClass("slide-left");
-		$frontSlide.eq(2).removeClass("slide-right slide-left").addClass("slide-center");
-		$frontSlide.eq(3).removeClass("slide-center slide-left").addClass("slide-right");
-	}
+	let n = direc == "right" ? 2 : direc == "left" ? 0 : 1;
+	$frontSlide.eq(n).removeClass("slide-center slide-right").addClass("slide-left");
+	$frontSlide.eq(n+1).removeClass("slide-right slide-left").addClass("slide-center");
+	$frontSlide.eq(n+2).removeClass("slide-center slide-left").addClass("slide-right");
+	frontBool = false;
+	setTimeout(function(){frontBool=true},600);
 }
 
 function frontInit(direc){
+	var frontBool;
 	$frontSlide = $(".front-slide")
 	frontNow = 1;	
 	if(direc == "right") {
@@ -112,17 +96,22 @@ function frontInit(direc){
 	}
 	front3d(direc);
 	slideWid =  $(".slide-left").outerWidth();
-	$(".front-slide-wrap").css("left",-slideWid*frontNow+"px");
+	$(".front-slide-wrap").css("left");
+	$(".front-slide-wrap").css("left", -slideWid*frontNow+"px");
 }
 	
 function onFrontClickLeft(){
-	frontNow = 0; 
-	frontAni("left");
+	if(frontBool){
+		frontNow = 0; 
+		frontAni("left");
+	}
 }
 
 function onFrontClickRight(){
-	frontNow = 2; 
-	frontAni("right");
+	if(frontBool){
+		frontNow = 2; 
+		frontAni("right");
+	}
 }
 
 function onGetSlide(r){
