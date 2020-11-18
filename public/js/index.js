@@ -20,7 +20,8 @@ function docInit(){
 
 function onResizeWindow(){
 	winHei = $(window).height();
-	slideWid = $(".slide-left").outerWidth();
+	slideWid = ((($(window).outerWidth())*0.75)*1.5)*0.16666;
+	$(".front-slide-wrap").css({"left": -slideWid*frontNow+"px"});
 }
 
 /************ CALLBACK ***********/ 
@@ -59,7 +60,7 @@ function onSectionWheel(e){
 					pagerAni(pagerNow);
 					setTimeout(function(){return false},600);
 				}
-		}, 200);
+		}, 250);
 }
 
 function frontAni(direc){
@@ -75,6 +76,7 @@ function frontAni(direc){
 
 function front3d(direc){
 	let n = direc == "right" ? 2 : direc == "left" ? 0 : 1;
+	
 	$frontSlide.eq(n).removeClass("slide-center slide-right").addClass("slide-left");
 	$frontSlide.eq(n+1).removeClass("slide-right slide-left").addClass("slide-center");
 	$frontSlide.eq(n+2).removeClass("slide-center slide-left").addClass("slide-right");
@@ -85,7 +87,8 @@ function front3d(direc){
 function frontInit(direc){
 	var frontBool;
 	$frontSlide = $(".front-slide")
-	frontNow = 1;	
+	frontNow = direc == "right" ? 2 : direc == "left" ? 0 : 1;;	
+	$frontSlide.removeClass("slide-center").addClass(direc == "left" ? "slide-left" : "slide-right");
 	if(direc == "right") {
 		$frontSlide.eq(0).remove();
 		$($frontSlide.eq(2)).clone().appendTo($(".front-slide-wrap"));
@@ -95,21 +98,21 @@ function frontInit(direc){
 		$($frontSlide.eq(2)).clone().prependTo($(".front-slide-wrap"));
 	}
 	front3d(direc);
-	slideWid =  $(".slide-left").outerWidth();
+	slideWid = ((($(window).outerWidth())*0.75)*1.5)*0.16666;
 	$(".front-slide-wrap").css("left");
-	$(".front-slide-wrap").css("left", -slideWid*frontNow+"px");
+	$(".front-slide-wrap").css({"left": -slideWid*frontNow+"px"});
 }
 	
 function onFrontClickLeft(){
 	if(frontBool){
-		frontNow = 0; 
+		frontNow = 1; 
 		frontAni("left");
 	}
 }
 
 function onFrontClickRight(){
 	if(frontBool){
-		frontNow = 2; 
+		frontNow = 1; 
 		frontAni("right");
 	}
 }
