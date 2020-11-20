@@ -31,11 +31,15 @@ function onNaviIconClick(){
 
 function onNaviClick(){
 	pagerNow = $(this).index();
+	let src = '../img/bg-'+pagerNow+'.png';
+	$(this).css("background",'url('+src+')');
+	$(this).siblings().css("background",'none');
 	pagerAni(pagerNow);
 }
 
 function onSideClick(){
 	pagerNow = $(this).index();
+	$(".header-right ul").removeClass("on");
 	pagerAni(pagerNow);	
 }
 
@@ -60,7 +64,12 @@ function onSectionWheel(e){
 					pagerAni(pagerNow);
 					setTimeout(function(){return false},600);
 				}
+				$(".header-right ul").removeClass("on");	
 		}, 250);
+}
+
+function onSectionClick(){
+	$(".header-right ul").removeClass("on");
 }
 
 function frontAni(direc){
@@ -146,6 +155,7 @@ $(".navi-icon").on("click",onNaviIconClick);
 $(".navi li").on("click",onNaviClick)
 $(".side-btn").on("click",onSideClick);
 $("section").on("mousewheel",onSectionWheel);
+$("section").on("click", onSectionClick);
 $(".front-end .bt-left").on("click",onFrontClickLeft);
 $(".front-end .bt-right").on("click",onFrontClickRight);
 $.get('../json/slide.json', onGetSlide);

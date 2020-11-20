@@ -97,20 +97,33 @@ section {
   cursor: pointer;
 }
 .header .header-right ul {
-  display: none;
-  position: absolute;
-  margin-top: 2em;
-  background-color: #fff;
-  padding-right: 2em;
-  flex-direction: column;
+  visibility: hidden;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateY(-40px);
+  width: 100%;
+  background-color: #aeaeb6;
+  flex-direction: row;
+  justify-content: space-evenly;
+  transition: all 0.5s;
 }
 .header .header-right ul li {
-  cursor: pointer;
+  padding: 0.5em 2em;
+  color: black;
+  font-size: 1.5em;
+  font-weight: 400;
   user-select: none;
-  margin: 1em 0;
+  cursor: pointer;
+}
+.header .header-right ul li.on {
+  background-color: #d6d6da;
 }
 .header .header-right ul.on {
-  display: flex;
+  visibility: visible;
+  transform: translateY(0px);
+  top: 0;
 }
 
 /********* side-navi ********/
@@ -143,7 +156,7 @@ section {
 
 /********* main ********/
 .main {
-  background: url("../img/bg-main.png");
+  background: url("../img/bg-0.png");
 }
 .main .wrapper {
   display: flex;
@@ -183,10 +196,10 @@ section {
 
 /********* about me ********/
 .about-me {
-  background: url("../img/shirt.png") no-repeat calc(100% + 250px) calc(100% + 300px), url("../img/bg-about-me.png");
+  background: url("../img/shirt.png") no-repeat calc(100% + 250px) calc(100% + 300px), url("../img/bg-1.png");
 }
 .about-me .title::before {
-  background: url("../img/bg-main.png");
+  background: url("../img/bg-0.png");
 }
 .about-me .desc {
   margin-top: 2em;
@@ -221,10 +234,10 @@ section {
 
 /********* front-end ********/
 .front-end {
-  background: url("../img/statue.png") no-repeat calc(100% + 180px) calc(100% + 240px), url("../img/bg-front.png");
+  background: url("../img/statue.png") no-repeat calc(100% + 180px) calc(100% + 240px), url("../img/bg-2.png");
 }
 .front-end .title::before {
-  background: url("../img/bg-front.png");
+  background: url("../img/bg-2.png");
 }
 .front-end .front-slide-stage {
   position: relative;
@@ -240,11 +253,11 @@ section {
   position: relative;
   perspective: 300px;
   z-index: 15;
+  transition: all 0.7s;
   cursor: pointer;
-  transition: all 0.5s;
 }
 .front-end .front-slide-wrap .front-slide .slide-image {
-  transition: all 0.5s;
+  transition: all 0.8s;
   position: relative;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -275,7 +288,7 @@ section {
   font-family: "Raleway", sans-serif;
   font-size: 3em;
   font-weight: 600;
-  transition: all 0.5s;
+  transition: all 0.6s;
   z-index: 16;
   opacity: 0;
   user-select: none;
@@ -342,18 +355,18 @@ section {
 
 /********* back-end ********/
 .back-end {
-  background: url("../img/cat.png") no-repeat calc(100% + 340px) calc(100% + 260px), url("../img/bg-back.png");
+  background: url("../img/cat.png") no-repeat calc(100% + 340px) calc(100% + 260px), url("../img/bg-3.png");
 }
 .back-end .title::before {
-  background: url("../img/bg-about-me.png");
+  background: url("../img/bg-1.png");
 }
 
 /********* UI/UX ********/
 .ui-ux {
-  background: url("../img/bg-main.png");
+  background: url("../img/bg-4.png");
 }
 .ui-ux .title::before {
-  background: url("../img/bg-back.png");
+  background: url("../img/bg-3.png");
 }
 
 /********* footer ********/
