@@ -31,9 +31,10 @@ function onNaviIconClick(){
 
 function onNaviClick(){
 	pagerNow = $(this).index();
-	let src = '../img/bg-'+pagerNow+'.png';
-	$(this).css("background",'url('+src+')');
-	$(this).siblings().css("background",'none');
+	$(this).siblings().css("background",' #dedee4');
+
+	$(this).addClass('on');
+	//$(this).css("background",'transparent');
 	pagerAni(pagerNow);
 }
 

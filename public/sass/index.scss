@@ -109,24 +109,26 @@ section {
 			visibility: hidden;
 			display: flex;
 			position: fixed;
-			top:0;
-			left: 0;
+			top: 0;
+			left: 10%;
 			transform:translateY(-40px);
-			width: 100%;
-			background-color: $bg_color;
-			flex-direction: row;
-			justify-content: space-evenly;
+			width: 80%;
+			//background-color: $bg_color;
 			transition: all 0.5s;
 			li {
-				padding: 0.5em 2em;
+				padding: 0.375em 0;
+				flex:20% 0 0;
+				text-align: center;
 				color: darken($font_color,85%);
 				font-size: 1.5em;
 				font-weight: 400;
 				user-select: none;
+				transition:all 0.5s;
 				cursor: pointer;
-				&.on{
-					background-color: lighten($bg_color, 15%);
-				}
+			&.on {
+				background-color: #333;
+				color:#fff;
+			}
 			}
 			&.on {
 				visibility: visible;

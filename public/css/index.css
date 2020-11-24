@@ -101,24 +101,25 @@ section {
   display: flex;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 10%;
   transform: translateY(-40px);
-  width: 100%;
-  background-color: #aeaeb6;
-  flex-direction: row;
-  justify-content: space-evenly;
+  width: 80%;
   transition: all 0.5s;
 }
 .header .header-right ul li {
-  padding: 0.5em 2em;
+  padding: 0.375em 0;
+  flex: 20% 0 0;
+  text-align: center;
   color: black;
   font-size: 1.5em;
   font-weight: 400;
   user-select: none;
+  transition: all 0.5s;
   cursor: pointer;
 }
 .header .header-right ul li.on {
-  background-color: #d6d6da;
+  background-color: #333;
+  color: #fff;
 }
 .header .header-right ul.on {
   visibility: visible;
