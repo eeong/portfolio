@@ -27,12 +27,13 @@ function onResizeWindow(){
 /************ CALLBACK ***********/ 
 function onNaviIconClick(){
 	$(this).siblings("ul").toggleClass("on");
+	$(".navi li").eq(pagerNow).siblings().removeClass("on");
+	$(".navi li").eq(pagerNow).addClass('on');
 }
 
 function onNaviClick(){
 	pagerNow = $(this).index();
-	$(this).siblings().css("background",' #dedee4');
-
+	$(this).siblings().removeClass("on");
 	$(this).addClass('on');
 	//$(this).css("background",'transparent');
 	pagerAni(pagerNow);
@@ -66,7 +67,7 @@ function onSectionWheel(e){
 					setTimeout(function(){return false},600);
 				}
 				$(".header-right ul").removeClass("on");	
-		}, 250);
+		}, 200);
 }
 
 function onSectionClick(){

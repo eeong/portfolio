@@ -111,15 +111,16 @@ section {
   flex: 20% 0 0;
   text-align: center;
   color: black;
-  font-size: 1.5em;
+  background: none;
+  font-size: 1.25em;
   font-weight: 400;
   user-select: none;
-  transition: all 0.5s;
+  transition: all 0.7s;
   cursor: pointer;
 }
 .header .header-right ul li.on {
-  background-color: #333;
-  color: #fff;
+  background: black;
+  color: #dedee4;
 }
 .header .header-right ul.on {
   visibility: visible;
@@ -254,11 +255,11 @@ section {
   position: relative;
   perspective: 300px;
   z-index: 15;
-  transition: all 0.7s;
+  transition: all 0.6s;
   cursor: pointer;
 }
 .front-end .front-slide-wrap .front-slide .slide-image {
-  transition: all 0.8s;
+  transition: all 0.7s;
   position: relative;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

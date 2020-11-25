@@ -120,22 +120,21 @@ section {
 				flex:20% 0 0;
 				text-align: center;
 				color: darken($font_color,85%);
-				font-size: 1.5em;
+				background: none;
+				font-size: 1.25em;
 				font-weight: 400;
 				user-select: none;
-				transition:all 0.5s;
+				transition:all 0.7s;
 				cursor: pointer;
 			&.on {
-				background-color: #333;
-				color:#fff;
+				background: darken($font_color,85%);
+				color: $bg_color;
 			}
 			}
 			&.on {
 				visibility: visible;
 				transform:translateY(0px);
 				top:0;
-				
-			
 			}
 		}
 	}
@@ -273,11 +272,11 @@ section {
 			position: relative;
 			perspective: 300px;
 			z-index: 15;
-			transition:all 0.7s;
+			transition:all 0.6s;
 			cursor: pointer;
 
 			.slide-image {
-				transition:all 0.8s;
+				transition:all 0.7s;
 				position: relative;
 				box-shadow: $section_shadow;
 				&::after {
