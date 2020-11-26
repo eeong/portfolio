@@ -1,0 +1,10 @@
+@keyframes aniCont {
+  0% {
+    left: 0;
+    bottom: 0;
+  }
+  100% {
+    left: -100px;
+    bottom: -100px;
+  }
+}

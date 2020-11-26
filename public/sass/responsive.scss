@@ -6,27 +6,26 @@ $mobile: 575px;
 @mixin pc {
 	@media screen and (max-width: $pc) {
 		@content;
- }
+	}
 }
- 
+
 
 @mixin laptop {
 	@media screen and (max-width: $laptop) {
 		@content;
- }
+	}
 }
- 
+
 
 @mixin tablet {
 	@media screen and (max-width: $tablet) {
 		@content;
- }
+	}
 }
- 
+
 
 @mixin mobile {
 	@media screen and (max-width: $mobile) {
 		@content;
- }
+	}
 }
- 

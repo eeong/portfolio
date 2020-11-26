@@ -165,7 +165,7 @@ section {
 		}
 		&.on {
 			background-color: $main_color;
-		 }
+		}
 	}
 }
 
@@ -206,7 +206,6 @@ section {
 	}
 	.ellipse {
 		position: absolute; left: 50%; bottom: -12%; transform:translateX(-50%);
-		@include aniScale;
 	}
 } 
 
@@ -214,7 +213,8 @@ section {
 .about-me {
 	background: url("../img/shirt.png") no-repeat calc(100% + 250px) calc(100% + 300px), url("../img/bg-1.png");
 	.title::before {
-		background: url("../img/bg-0.png");
+		background: url("../img/bg-0.png") no-repeat;
+		background-size: auto 1000px;
 	}
 	.desc {
 		margin-top: 2em;
@@ -225,6 +225,7 @@ section {
 	}
 	.skill-wrapper {
 		padding-top: 6em;
+		width: 95%;
 		display: flex;
 		justify-content: space-between;
 		.skill-wrap {
@@ -236,6 +237,7 @@ section {
 				font: {
 					family: $font-family-sub;
 					size: 1.5em;
+					weight: 500;
 				}
 			}
 			.skill-img {
@@ -244,7 +246,7 @@ section {
 				flex-wrap: wrap;
 				justify-content: space-around;
 				.img-wrap {
-					flex:35% 0 0;
+					flex:40% 0 0;
 					padding-bottom: 1.5em;
 				}
 			}
@@ -395,7 +397,7 @@ section {
 
 
 /********* UI/UX ********/
-.ui-ux {
+.uiux {
 	background: url("../img/bg-4.png");
 	.title::before {
 		background: url("../img/bg-3.png");
@@ -415,7 +417,9 @@ section {
 		font-size: 1.2em;
 		font-family: $font-family-sub;
 		font-weight: 500;
+		transition:all 0.5s;
 		cursor: pointer;
+		
 	}
 	.git {
 		width: 25px;
@@ -430,7 +434,24 @@ section {
 		img {
 			transform: scale(1.1);
 		}
+		.contact{
+			color:$font_color;
+		}
+		.contact-me {
+			display: block;
 	}
+	.contact-me {
+		position: fixed;
+		text-align: center;
+		width: 350px;
+		height: 350px;
+		border-radius: 50%;
+		background: linear-gradient(-45deg, rgba(30,87,153,0) 0%, rgba(30,87,153,0.8) 15%, rgba(30,87,153,1) 19%, rgba(30,87,153,1) 20%, rgba(41,137,216,1) 50%, rgba(30,87,153,1) 80%, rgba(30,87,153,1) 81%, rgba(30,87,153,0.8) 85%, rgba(30,87,153,0) 100%);
+		left: -100px;
+		bottom: -100px;
+		z-index: -1;
+	}
+}
 }
 
 @include pc {

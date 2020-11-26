@@ -1,5 +1,17 @@
 
-@mixin aniScale {
-	animation-duration: 2s;
+@mixin aniContact {
+	animation-duration: 0.5s;
 	animation-timing-function: ease-in-out;
+	animation-name: 'aniCont'
+}
+
+@keyframes aniCont {
+	0% {
+		left:0;
+		bottom: 0;
+	};
+	100% {
+		left: -100px;
+		bottom: -100px;
+	};
 }

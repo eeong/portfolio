@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Cantarell&family=Raleway:wght@300;400;500;600&family=Roboto:wght@400;500;700&family=Ubuntu:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap");
+@keyframes aniCont {
+  0% {
+    left: 0;
+    bottom: 0;
+  }
+  100% {
+    left: -100px;
+    bottom: -100px;
+  }
+}
 html, body {
   color: #0d0d16;
   font-size: 16px;
@@ -192,8 +202,6 @@ section {
   left: 50%;
   bottom: -12%;
   transform: translateX(-50%);
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
 }
 
 /********* about me ********/
@@ -201,7 +209,8 @@ section {
   background: url("../img/shirt.png") no-repeat calc(100% + 250px) calc(100% + 300px), url("../img/bg-1.png");
 }
 .about-me .title::before {
-  background: url("../img/bg-0.png");
+  background: url("../img/bg-0.png") no-repeat;
+  background-size: auto 1000px;
 }
 .about-me .desc {
   margin-top: 2em;
@@ -210,6 +219,7 @@ section {
 }
 .about-me .skill-wrapper {
   padding-top: 6em;
+  width: 95%;
   display: flex;
   justify-content: space-between;
 }
@@ -222,6 +232,7 @@ section {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-size: 1.5em;
+  font-weight: 500;
 }
 .about-me .skill-wrapper .skill-wrap .skill-img {
   padding-top: 2em;
@@ -230,7 +241,7 @@ section {
   justify-content: space-around;
 }
 .about-me .skill-wrapper .skill-wrap .skill-img .img-wrap {
-  flex: 35% 0 0;
+  flex: 40% 0 0;
   padding-bottom: 1.5em;
 }
 
@@ -364,10 +375,10 @@ section {
 }
 
 /********* UI/UX ********/
-.ui-ux {
+.uiux {
   background: url("../img/bg-4.png");
 }
-.ui-ux .title::before {
+.uiux .title::before {
   background: url("../img/bg-3.png");
 }
 
@@ -383,6 +394,7 @@ section {
   font-size: 1.2em;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
+  transition: all 0.5s;
   cursor: pointer;
 }
 .footer .git {
@@ -396,6 +408,23 @@ section {
 }
 .footer:hover img {
   transform: scale(1.1);
+}
+.footer:hover .contact {
+  color: #0d0d16;
+}
+.footer:hover .contact-me {
+  display: block;
+}
+.footer:hover .contact-me {
+  position: fixed;
+  text-align: center;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: linear-gradient(-45deg, rgba(30, 87, 153, 0) 0%, rgba(30, 87, 153, 0.8) 15%, #1e5799 19%, #1e5799 20%, #2989d8 50%, #1e5799 80%, #1e5799 81%, rgba(30, 87, 153, 0.8) 85%, rgba(30, 87, 153, 0) 100%);
+  left: -100px;
+  bottom: -100px;
+  z-index: -1;
 }
 
 @media screen and (max-width: 991px) {
