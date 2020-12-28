@@ -412,55 +412,145 @@ section {
 	bottom: 0;
 	left: 0;
 	padding: $header_padding;
-	.contact {
-		color:$main_color;
-		font-size: 1.2em;
-		font-family: $font-family-sub;
-		font-weight: 500;
-		transition:all 0.5s;
-		cursor: pointer;
-		
-	}
-	.git {
-		width: 25px;
-		height: 25px;
-		img {
-			width: 100%; 
-			height: 100%;
-			transition:transform 0.5s;
+	.footer-wrap{
+		padding-right: 2em;
+		.contact {
+			color: $main_color;
+			font-size: 1.2em;
+			font-family: $font-family-sub;
+			font-weight: 500;
+			transition: all 0.5s;
+
 		}
-	}
-	&:hover {
-		img {
-			transform: scale(1.1);
-		}
-		.contact{
-			color:$font_color;
-		}
-		.contact-me {
-			left: -100px;
-			bottom: -100px;
-			.contact-content {
-				opacity: 1;
+		.git {
+
+			i {
+				display: block;
+				font-size: 1.125em;
+				padding-top: 0.25em;
+				transform: translateX(-10px);
+				opacity: 0;
+				transition: all 0.5s;
+				cursor: pointer;
+				&:nth-child(2) {
+					transition-delay: 0.1s;
+				}
+				&:nth-child(3) {
+					transition-delay: 0.15s;
+				}
+				
 			}
 		}
-	}
-.contact-me {
-	position: fixed;
-	width: 350px;
-	height: 350px;
-	border-radius: 50%;
-	background: linear-gradient(-45deg, rgba(30,87,153,0) 0%, rgba(30,87,153,0.8) 15%, rgba(30,87,153,1) 19%, rgba(30,87,153,1) 20%, rgba(41,137,216,1) 50%, rgba(30,87,153,1) 80%, rgba(30,87,153,1) 81%, rgba(30,87,153,0.8) 85%, rgba(30,87,153,0) 100%);
-	left: -300px;
-	bottom: -300px;
-	transition: all 0.5s;
-	z-index: -1;
-	.contact-content {
-		opacity: 0;
-		transition:all 0.5s;
-		padding-left: 8em;
+		&:hover {
+			i {
+				opacity: 1;
+				transform: translateX(0);
+				&:nth-child(2) {
+					transition-delay: 0;
+				}
+				&:nth-child(3) {
+					transition-delay: 0;
+				}
+			}
+		
+		}
 	}
 }
+
+.email-wrap {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #0f0f14cc;
+
+	.form-wrap {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 50%;
+		height: 50%;
+		transform:translate(-50%, -50%);
+		background: #b9b9b9;	
+		border: 2px solid #111;
+		box-shadow: 1px 1px 0px 1px #a1a1a1 inset;
+		.mail-header {
+			position: absolute; 
+			top: 0;
+			width: 100%;
+			height: 7%;
+			box-shadow: 0px 0px 0px 2px #a1a1a1 inset;
+			background: #808080;	
+			margin-bottom: 0.5em;
+				i.fa {
+					margin: 0 0.5em;
+				}
+				span {
+					font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+					font-weight: bold;
+					letter-spacing: normal;
+				}
+				i.fa-close {
+					position: absolute; 
+					right: 0;
+					top: 48%;
+					transform: translateY(-50%);
+					height: 18px;
+					width: 18px;
+					text-align: center;
+					background-color: #a1a1a1;
+					box-shadow: 1px 1px 0px 1px #727272 inset;
+					cursor: pointer;
+				}
+		}
+
+	}
+	form {
+		display: flex;
+		flex-direction: column;
+		width: 98%;
+		height: 98%;
+		
+	}
+
+	.email {
+		display: flex;
+		border: 1px solid #111;
+		box-shadow: 1px 1px 0px 0.5px #757575 inset;
+		margin: 1em auto;
+		margin-top: 2.25em;
+		padding: 0.5em 0.5em;
+		flex-direction: column;
+		width: 95%;
+	}
+	input {
+		margin: 0.25em 0;
+		box-shadow: 0.5px 0.5px 0px 0.5px #3d3d3d inset;
+	}
+	.mymail{
+		cursor: auto;
+		&:focus {
+			outline-style: none;
+		}
+		&::placeholder {
+			color: $font_color;
+			font-style: italic;
+		}
+	}
+	.comment {
+		width: 95%;
+		border-top: 2px solid #111;
+		border-left: 1px solid #111;
+		box-shadow: 0.5px 1px 0px 1px #3d3d3d inset;
+		margin: 0.5em 1em auto;
+		height: 40%;
+	}
+	.bt-send {
+		position: absolute;
+		right: 4.8%;
+		bottom: 2.5%;
+		width:10%;
+	}
 }
 
 @include pc {

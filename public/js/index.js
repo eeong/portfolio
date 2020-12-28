@@ -8,6 +8,7 @@ var slideWid; //front-slide animation width
 var frontNow; 
 var $frontSlides = []; //front-slide json clone array(j-query)
 var $frontSlide; // $(".front-slide")
+
 /************ FUNCTION ***********/ 
 
 function docInit(){
@@ -132,7 +133,7 @@ function onGetSlide(r){
 	var html = "";
 	for (var i in r.slides ){
 		html =  '<div class="front-slide"' +r.slides[i].id+'>';
-		html += '<div class="slide-image">'+r.slides[i].id+'<img src="'+r.slides[i].src+'" alt="slide" class="w-100">';
+		html += '<div class="slide-image"><img src="'+r.slides[i].src+'" alt="slide" class="w-100">';
 		html += '<div class="slide-title">'+r.slides[i].title+'</div>';
 		html += '</div>';
 		html += '<div class="slide-desc">'+r.slides[i].desc+'</div>';
@@ -144,6 +145,10 @@ function onGetSlide(r){
 	frontInit();
 }
 
+function onEmailClick(){
+	$(".email-wrap").show();
+}
+
 function onClickLang(){
 	$("html").stop().animate({'opacity':0.5},500,function(){
 		$("[id |= lang]").toggleClass("active");
@@ -151,6 +156,20 @@ function onClickLang(){
 	});
 	});
 	}
+
+function onEmailClose(){
+	$(".email-wrap").hide();
+}
+
+
+function mailSend(x){
+	x.contact_number.value = Math.random() * 100000 | 0;
+	emailjs.sendForm('service_fur1cuq', 'template_a5s4ize', x);
+	$(".email-wrap").hide();
+	return false;
+	
+}
+
 
 /************ EXECUTE ***********/ 
 $(".navi-icon").on("click",onNaviIconClick);
@@ -160,8 +179,12 @@ $("section").on("mousewheel",onSectionWheel);
 $("section").on("click", onSectionClick);
 $(".front-end .bt-left").on("click",onFrontClickLeft);
 $(".front-end .bt-right").on("click",onFrontClickRight);
+$(".fa-envelope").on("click",onEmailClick);
+$(".fa-close").on("click",onEmailClose);
 $.get('../json/slide.json', onGetSlide);
 $(".lang-bt").on("click", onClickLang);
+
+emailjs.init("user_OQNTTJmx8nuO6apvJPh5b");
 
 $(window).one("load", docInit);
 $(window).on("resize", onResizeWindow).trigger("resize");
