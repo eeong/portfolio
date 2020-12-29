@@ -132,7 +132,7 @@ function onFrontClickRight(){
 function onGetSlide(r){
 	var html = "";
 	for (var i in r.slides ){
-		html =  '<div class="front-slide"' +r.slides[i].id+'>';
+		html =  '<div class="front-slide ">';
 		html += '<div class="slide-image"><img src="'+r.slides[i].src+'" alt="slide" class="w-100">';
 		html += '<div class="slide-title">'+r.slides[i].title+'</div>';
 		html += '</div>';
@@ -142,6 +142,14 @@ function onGetSlide(r){
 	}
 	$($frontSlides[0]).clone().appendTo($(".front-slide-wrap"));
 	$($frontSlides[2]).clone().prependTo($(".front-slide-wrap"));
+
+	function onDetailClick(){
+		$(".detail-wrap").show().animate({"left" : 0 } , 500);
+		
+	}
+
+	$(".front-slide").on("click", onDetailClick);
+
 	frontInit();
 }
 
@@ -170,8 +178,15 @@ function mailSend(x){
 	
 }
 
+function onDetailClose(){
+	$(".detail-wrap").animate({"left" : "40%" } , 500, function(){
+		$(".detail-wrap").hide();
+	});
+}
+
 
 /************ EXECUTE ***********/ 
+$.get('../json/slide.json', onGetSlide);
 $(".navi-icon").on("click",onNaviIconClick);
 $(".navi li").on("click",onNaviClick)
 $(".side-btn").on("click",onSideClick);
@@ -181,8 +196,10 @@ $(".front-end .bt-left").on("click",onFrontClickLeft);
 $(".front-end .bt-right").on("click",onFrontClickRight);
 $(".fa-envelope").on("click",onEmailClick);
 $(".fa-close").on("click",onEmailClose);
-$.get('../json/slide.json', onGetSlide);
+$(".detail-close").on("click", onDetailClose);
+
 $(".lang-bt").on("click", onClickLang);
+
 
 emailjs.init("user_OQNTTJmx8nuO6apvJPh5b");
 
