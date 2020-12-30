@@ -27,6 +27,7 @@ function onResizeWindow(){
 
 /************ CALLBACK ***********/ 
 function onNaviIconClick(){
+	$(".navi-icon").toggleClass("on").toggleClass("aniNavi");
 	$(this).siblings("ul").toggleClass("on");
 	$(".navi li").eq(pagerNow).siblings().removeClass("on");
 	$(".navi li").eq(pagerNow).addClass('on');
@@ -40,8 +41,10 @@ function onNaviClick(){
 	pagerAni(pagerNow);
 }
 
+
 function onSideClick(){
 	pagerNow = $(this).index();
+	$(".navi-icon").removeClass("on").addClass("aniNavi");
 	$(".header-right ul").removeClass("on");
 	pagerAni(pagerNow);	
 }
@@ -67,11 +70,13 @@ function onSectionWheel(e){
 					pagerAni(pagerNow);
 					setTimeout(function(){return false},600);
 				}
+				$(".navi-icon").removeClass("on").addClass("aniNavi");
 				$(".header-right ul").removeClass("on");	
 		}, 200);
 }
 
 function onSectionClick(){
+	$(".navi-icon").removeClass("on").addClass("aniNavi");
 	$(".header-right ul").removeClass("on");
 }
 
@@ -130,9 +135,10 @@ function onFrontClickRight(){
 }
 
 function onGetSlide(r){
-	var html = "";
+	var html, html2, result = "";
+	result = r;
 	for (var i in r.slides ){
-		html =  '<div class="front-slide ">';
+		html =  '<div class="front-slide ' + r.slides[i].class+'">';
 		html += '<div class="slide-image"><img src="'+r.slides[i].src+'" alt="slide" class="w-100">';
 		html += '<div class="slide-title">'+r.slides[i].title+'</div>';
 		html += '</div>';
@@ -144,8 +150,22 @@ function onGetSlide(r){
 	$($frontSlides[2]).clone().prependTo($(".front-slide-wrap"));
 
 	function onDetailClick(){
+		let id;
+		if( $(this).hasClass("web1") ) id = 0;
+		else if ( $(this).hasClass("web2") ) id = 1;
+		else if ( $(this).hasClass("web2") )id = 2;
+		html2 = '<div class="video">'
+		html2 += '<iframe src='+result.slides[id].vsrc +'frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>'
+		html2 += '<div class="fence"></div>'
+		html2 += '</div>'
+		html2 += '<div class="detail-desc">'
+		html2 += '<h3>'+result.slides[id].detailTitle+'</h3>'
+		html2 += '<p>'+result.slides[id].detailDesc+'</p>'
+		html2 += '</div>'
+		$(html2).appendTo($(".detail").empty());
 		$(".detail-wrap").show().animate({"left" : 0 } , 500);
-		
+		$("iframe").css("transform","scale(1)");
+		$(".fence").css("background","transparent");
 	}
 
 	$(".front-slide").on("click", onDetailClick);
@@ -188,6 +208,7 @@ function onDetailClose(){
 /************ EXECUTE ***********/ 
 $.get('../json/slide.json', onGetSlide);
 $(".navi-icon").on("click",onNaviIconClick);
+
 $(".navi li").on("click",onNaviClick)
 $(".side-btn").on("click",onSideClick);
 $("section").on("mousewheel",onSectionWheel);

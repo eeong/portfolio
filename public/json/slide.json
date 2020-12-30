@@ -1,8 +1,32 @@
 {
 	"slides" : [
-		{"id": 1, "class": "" , "src": "../img/slide-1.png", "title": "Shop", "desc":"Project Stacks: HTML5 CSS3 jQuery ES6 Vue.js"},
-		{"id": 2, "class": "" , "src": "../img/slide-1.png", "title": "Shop", "desc":"Project Stacks: HTML5 CSS3 jQuery ES6 Vue.js"},
-		{"id": 3, "class": "" , "src": "../img/slide-1.png", "title": "Shop", "desc":"Project Stacks: HTML5 CSS3 jQuery ES6 Vue.js"}
+		{"id": 1, 
+			"class": "web1" , 
+			"src": "../img/slide-1.png", 
+			"vsrc":"https://www.youtube.com/embed/nzdg5PAzmqs?autoplay=1&mute=1&loop=1" ,
+			"detailTitle":"Vuejs weather App",
+			"detailDesc":"Based on Vue-cli framework, using openweather api ,",
+			"title": "Shop", 
+			"desc":"Project Stacks: HTML5 CSS3 jQuery ES6 Vue.js"
+		},
+		{"id": 2, 
+			"class": "web2" , 
+			"src": "../img/slide-2.png", 
+			"vsrc":"",
+			"detailTitle":"",
+			"detailDesc":"",
+			"title": "Shop", 
+			"desc":"Project Stacks: HTML5 CSS3 jQuery ES6 Vue.js"
+		},
+		{"id": 3, 
+			"class": "web3" , 
+			"src": "../img/slide-3.png", 
+			"vsrc":"",
+			"detailTitle":"",
+			"detailDesc":"",
+			"title": "Shop", 
+			"desc":"Project Stacks: HTML5 CSS3 jQuery ES6 Vue.js"
+		}
 	]
 			
 }
