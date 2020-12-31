@@ -314,9 +314,88 @@ section {
 	}
 }
 
+.slide-stage {
+	position: relative;
+	overflow: hidden;
+}
+.slide-wrap {
+	display: flex;
+	width: 150%;
+	padding-top: 7em;
+	position: relative;
+	
+	.slide {
+		position: relative;
+		perspective: 300px;
+		z-index: 15;
+		transition:all 0.6s;
+		cursor: pointer;
 
+		.slide-image {
+			transition:all 0.7s;
+			position: relative;
+			box-shadow: $section_shadow;
+			&::after {
+				display: block;
+				content:"";
+				position: absolute;
+				top: 0;
+				width: 100%; 
+				height: 100%;
+				background: #000;
+				opacity: 0;
+				transition:all 0.5s;
+			}
+			&:hover {
+				&::after {
+					opacity: 0.3;
+				}
+				.slide-title {
+					opacity: 1;
+					top: 50%;
+				}
+			}
+		}
+		
 
-
+		&:hover {
+			.slide-desc {
+				opacity:1;
+				visibility: visible;
+			}
+		}
+	}
+	
+	.slide.slide-left {
+		z-index: 1;
+		flex: 16.6666% 0 0;
+		.slide-image, .slide-desc {
+			transform: rotateY(-20deg) scaleX(0.6);
+		}
+		.slide-desc {
+			padding-top: 1em;
+		}
+	}
+	.slide.slide-center {
+		flex:33.3333% 0 0;
+		.slide-image, .slide-desc {
+			opacity:1;
+			visibility: visible;
+			transform: translateY(-60px);
+		}
+	}
+	.slide.slide-right {
+		z-index: 1;
+		flex: 16.6666% 0 0;
+		.slide-image, .slide-desc {
+			transform: rotateY(20deg) scaleX(0.6); 
+		}
+		.slide-desc {
+			padding-top: 1em;
+		}
+	}
+	
+}
 
 /********* front-end ********/
 .front-end {
@@ -324,109 +403,24 @@ section {
 	.title::before {
 		background: url("../img/bg-2.png");
 	}
-	.front-slide-stage {
-		position: relative;
-		overflow: hidden;
+.bt-wrap {
+	position: absolute; 
+	top: 50%;
+	color: $main_color;
+	width: 78%;
+	transform:translate(-2.597% , -70%);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index:0;
+	.bt {
+		cursor: pointer;
+		z-index: 100;
+		display: inline-block;
 	}
-	.front-slide-wrap {
-		display: flex;
-		width: 150%;
-		padding-top: 7em;
-		position: relative;
-		
-		.front-slide {
-			position: relative;
-			perspective: 300px;
-			z-index: 15;
-			transition:all 0.6s;
-			cursor: pointer;
-
-			.slide-image {
-				transition:all 0.7s;
-				position: relative;
-				box-shadow: $section_shadow;
-				&::after {
-					display: block;
-					content:"";
-					position: absolute;
-					top: 0;
-					width: 100%; 
-					height: 100%;
-					background: #000;
-					opacity: 0;
-					transition:all 0.5s;
-				}
-				&:hover {
-					&::after {
-						opacity: 0.3;
-					}
-					.slide-title {
-						opacity: 1;
-						top: 50%;
-					}
-				}
-			}
-			
-
-			&:hover {
-				.slide-desc {
-					opacity:1;
-					visibility: visible;
-				}
-			}
-		}
-		
-		.front-slide.slide-left {
-			z-index: 1;
-			flex: 16.6666% 0 0;
-			.slide-image, .slide-desc {
-				transform: rotateY(-20deg) scaleX(0.6);
-			}
-			.slide-desc {
-				padding-top: 1em;
-			}
-		}
-		.front-slide.slide-center {
-			flex:33.3333% 0 0;
-			.slide-image, .slide-desc {
-				opacity:1;
-				visibility: visible;
-				transform: translateY(-60px);
-			}
-		}
-		.front-slide.slide-right {
-			z-index: 1;
-			flex: 16.6666% 0 0;
-			.slide-image, .slide-desc {
-				transform: rotateY(20deg) scaleX(0.6); 
-			}
-			.slide-desc {
-				padding-top: 1em;
-			}
-		}
-	}
-
 }
 
-
-	.bt-wrap {
-		position: absolute; 
-		top: 50%;
-		color: $main_color;
-		width: 78%;
-		transform:translate(-2.597% , -70%);
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		z-index:0;
-		.bt {
-			cursor: pointer;
-			z-index: 100;
-			display: inline-block;
-		}
-	}
-
-
+}
 
 /********* back-end ********/
 .back-end {
@@ -459,9 +453,26 @@ section {
 
 /********* UI/UX ********/
 .uiux {
+	position: relative;	
 	background: url("../img/bg-4.png");
 	.title::before {
 		background: url("../img/bg-3.png");
+	}
+	.bt-wrap {
+		position: absolute; 
+		top: 50%;
+		color: $main_color;
+		width: 78%;
+		transform:translate(-2.597% , -70%);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		z-index:0;
+		.bt {
+			cursor: pointer;
+			z-index: 100;
+			display: inline-block;
+		}
 	}
 }
 

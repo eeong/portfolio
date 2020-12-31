@@ -7,6 +7,7 @@ var winHei;
 var slideWid; //front-slide animation width 
 var frontNow; 
 var $frontSlides = []; //front-slide json clone array(j-query)
+var $uiSlides = []; //ui-slide json clone array(j-query)
 var $frontSlide; // $(".front-slide")
 
 /************ FUNCTION ***********/ 
@@ -88,7 +89,6 @@ function frontAni(direc){
 	$frontSlide.eq(n+2).removeClass("slide-center slide-left").addClass("slide-right");
 	$(".front-slide-wrap").animate({"left": -frontNow*slideWid +"px"}, 500, frontInit(direc));
 	},0);
-	
 }
 
 function front3d(direc){
@@ -134,11 +134,63 @@ function onFrontClickRight(){
 	}
 }
 
+function uiAni(direc){
+	let n = direc == "right" ? 2 : 0;
+	setTimeout(function(){
+	$uiSlide.eq(n).removeClass("slide-center slide-right").addClass("slide-left");
+	$uiSlide.eq(n+1).removeClass("slide-right slide-left").addClass("slide-center");
+	$uiSlide.eq(n+2).removeClass("slide-center slide-left").addClass("slide-right");
+	$(".uiux-slide-wrap").animate({"left": -uiNow*slideWid +"px"}, 500, uiInit(direc));
+	},0);
+}
+
+function ui3d(direc){
+	let n = direc == "right" ? 2 : direc == "left" ? 0 : 1;
+	
+	$uiSlide.eq(n).removeClass("slide-center slide-right").addClass("slide-left");
+	$uiSlide.eq(n+1).removeClass("slide-right slide-left").addClass("slide-center");
+	$uiSlide.eq(n+2).removeClass("slide-center slide-left").addClass("slide-right");
+	uiBool = false;
+	setTimeout(function(){uiBool=true},600);
+}
+
+function uiInit(direc){
+	var uiBool;
+	$uiSlide = $(".ui-slide")
+	uiNow = direc == "right" ? 2 : direc == "left" ? 0 : 1;;	
+	$uiSlide.removeClass("slide-center").addClass(direc == "left" ? "slide-left" : "slide-right");
+	if(direc == "right") {
+		$uiSlide.eq(0).remove();
+		$($uiSlide.eq(2)).clone().appendTo($(".uiux-slide-wrap"));
+	}
+	else if(direc == "left") {
+		$uiSlide.eq(4).remove();
+		$($uiSlide.eq(2)).clone().prependTo($(".uiux-slide-wrap"));
+	}
+	ui3d(direc);
+	slideWid = ((($(window).outerWidth())*0.75)*1.5)*0.16666;
+	$(".uiux-slide-wrap").css("left");
+	$(".uiux-slide-wrap").css({"left": -slideWid*uiNow+"px"});
+}
+
+function onUiClickLeft(){
+	if(uiBool){
+		uiNow = 1; 
+		uiAni("left");
+	}
+}
+function onUiClickRight(){
+	if(uiBool){
+		uiNow = 1; 
+		uiAni("right");
+	}
+}
+
 function onGetSlide(r){
-	var html, html2, result = "";
+	var html, result = "";
 	result = r;
-	for (var i in r.slides ){
-		html =  '<div class="front-slide ' + r.slides[i].class+'">';
+	for (var i = 0; i < 3; i++ ){
+		html =  '<div class="front-slide slide ' + r.slides[i].class+'">';
 		html += '<div class="slide-image"><img src="'+r.slides[i].src+'" alt="slide" class="w-100">';
 		html += '<div class="slide-title">'+r.slides[i].title+'</div>';
 		html += '</div>';
@@ -149,20 +201,44 @@ function onGetSlide(r){
 	$($frontSlides[0]).clone().appendTo($(".front-slide-wrap"));
 	$($frontSlides[2]).clone().prependTo($(".front-slide-wrap"));
 
+	html = '<div class="back-slide web4">';
+	html += '<div class="slide-image">';
+	html += '<img src="../img/slide-4.png" alt="node-board"></div>';
+	html += '<div class="slide-title"></div>';
+	html += '<div class="slide-desc"></div></div>';
+	$(html).appendTo($(".back-slide-wrap"));
+
+	for (var i = 3; i < 6; i++){
+		html =  '<div class="ui-slide slide ' + r.slides[i].class+'">';
+		html += '<div class="slide-image"><img src="'+r.slides[i].src+'" alt="slide" class="w-100">';
+		html += '<div class="slide-title">'+r.slides[i].title+'</div>';
+		html += '</div>';
+		html += '<div class="slide-desc">'+r.slides[i].desc+'</div>';
+		html += '</div>';
+		$uiSlides.push($($(html).appendTo($(".uiux-slide-wrap"))));
+	}
+	$($uiSlides[0]).clone().appendTo($(".uiux-slide-wrap"));
+	$($uiSlides[2]).clone().prependTo($(".uiux-slide-wrap"));
+
 	function onDetailClick(){
 		let id;
 		if( $(this).hasClass("web1") ) id = 0;
 		else if ( $(this).hasClass("web2") ) id = 1;
-		else if ( $(this).hasClass("web2") )id = 2;
-		html2 = '<div class="video">'
-		html2 += '<iframe src='+result.slides[id].vsrc +'frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>'
-		html2 += '<div class="fence"></div>'
-		html2 += '</div>'
-		html2 += '<div class="detail-desc">'
-		html2 += '<h3>'+result.slides[id].detailTitle+'</h3>'
-		html2 += '<p>'+result.slides[id].detailDesc+'</p>'
-		html2 += '</div>'
-		$(html2).appendTo($(".detail").empty());
+		else if ( $(this).hasClass("web3") ) id = 2;
+		else if ( $(this).hasClass("web4") ) id = 3;
+		else if ( $(this).hasClass("web5") ) id = 4;
+		else if ( $(this).hasClass("web6") ) id = 5;
+		else if ( $(this).hasClass("web7") ) id = 6;
+		else id = 7;
+		html = '<div class="video">'
+		html += '<iframe src='+result.slides[id].vsrc +'frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>'
+		html += '<div class="fence"></div>'
+		html += '</div>'
+		html += '<div class="detail-desc">'
+		html += '<h3>'+result.slides[id].detailTitle+'</h3>'
+		html += '<p>'+result.slides[id].detailDesc+'</p>'
+		html += '</div>'
+		$(html).appendTo($(".detail").empty());
 		$(".detail-wrap").show().animate({"left" : 0 } , 500);
 		$("iframe").css("transform","scale(1)");
 		$(".fence").css("background","transparent");
@@ -171,6 +247,7 @@ function onGetSlide(r){
 	$(".front-slide").on("click", onDetailClick);
 
 	frontInit();
+	uiInit();
 }
 
 function onEmailClick(){
@@ -215,6 +292,8 @@ $("section").on("mousewheel",onSectionWheel);
 $("section").on("click", onSectionClick);
 $(".front-end .bt-left").on("click",onFrontClickLeft);
 $(".front-end .bt-right").on("click",onFrontClickRight);
+$(".uiux .bt-left").on("click",onUiClickLeft);
+$(".uiux .bt-right").on("click",onUiClickRight);
 $(".fa-envelope").on("click",onEmailClick);
 $(".fa-close").on("click",onEmailClose);
 $(".detail-close").on("click", onDetailClose);

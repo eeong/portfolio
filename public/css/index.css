@@ -351,36 +351,30 @@ section {
   padding-bottom: 1.5em;
 }
 
-/********* front-end ********/
-.front-end {
-  background: url("../img/statue.png") no-repeat calc(100% + 180px) calc(100% + 240px), url("../img/bg-2.png");
-}
-.front-end .title::before {
-  background: url("../img/bg-2.png");
-}
-.front-end .front-slide-stage {
+.slide-stage {
   position: relative;
   overflow: hidden;
 }
-.front-end .front-slide-wrap {
+
+.slide-wrap {
   display: flex;
   width: 150%;
   padding-top: 7em;
   position: relative;
 }
-.front-end .front-slide-wrap .front-slide {
+.slide-wrap .slide {
   position: relative;
   perspective: 300px;
   z-index: 15;
   transition: all 0.6s;
   cursor: pointer;
 }
-.front-end .front-slide-wrap .front-slide .slide-image {
+.slide-wrap .slide .slide-image {
   transition: all 0.7s;
   position: relative;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-.front-end .front-slide-wrap .front-slide .slide-image::after {
+.slide-wrap .slide .slide-image::after {
   display: block;
   content: "";
   position: absolute;
@@ -391,47 +385,54 @@ section {
   opacity: 0;
   transition: all 0.5s;
 }
-.front-end .front-slide-wrap .front-slide .slide-image:hover::after {
+.slide-wrap .slide .slide-image:hover::after {
   opacity: 0.3;
 }
-.front-end .front-slide-wrap .front-slide .slide-image:hover .slide-title {
+.slide-wrap .slide .slide-image:hover .slide-title {
   opacity: 1;
   top: 50%;
 }
-.front-end .front-slide-wrap .front-slide:hover .slide-desc {
+.slide-wrap .slide:hover .slide-desc {
   opacity: 1;
   visibility: visible;
 }
-.front-end .front-slide-wrap .front-slide.slide-left {
+.slide-wrap .slide.slide-left {
   z-index: 1;
   flex: 16.6666% 0 0;
 }
-.front-end .front-slide-wrap .front-slide.slide-left .slide-image, .front-end .front-slide-wrap .front-slide.slide-left .slide-desc {
+.slide-wrap .slide.slide-left .slide-image, .slide-wrap .slide.slide-left .slide-desc {
   transform: rotateY(-20deg) scaleX(0.6);
 }
-.front-end .front-slide-wrap .front-slide.slide-left .slide-desc {
+.slide-wrap .slide.slide-left .slide-desc {
   padding-top: 1em;
 }
-.front-end .front-slide-wrap .front-slide.slide-center {
+.slide-wrap .slide.slide-center {
   flex: 33.3333% 0 0;
 }
-.front-end .front-slide-wrap .front-slide.slide-center .slide-image, .front-end .front-slide-wrap .front-slide.slide-center .slide-desc {
+.slide-wrap .slide.slide-center .slide-image, .slide-wrap .slide.slide-center .slide-desc {
   opacity: 1;
   visibility: visible;
   transform: translateY(-60px);
 }
-.front-end .front-slide-wrap .front-slide.slide-right {
+.slide-wrap .slide.slide-right {
   z-index: 1;
   flex: 16.6666% 0 0;
 }
-.front-end .front-slide-wrap .front-slide.slide-right .slide-image, .front-end .front-slide-wrap .front-slide.slide-right .slide-desc {
+.slide-wrap .slide.slide-right .slide-image, .slide-wrap .slide.slide-right .slide-desc {
   transform: rotateY(20deg) scaleX(0.6);
 }
-.front-end .front-slide-wrap .front-slide.slide-right .slide-desc {
+.slide-wrap .slide.slide-right .slide-desc {
   padding-top: 1em;
 }
 
-.bt-wrap {
+/********* front-end ********/
+.front-end {
+  background: url("../img/statue.png") no-repeat calc(100% + 180px) calc(100% + 240px), url("../img/bg-2.png");
+}
+.front-end .title::before {
+  background: url("../img/bg-2.png");
+}
+.front-end .bt-wrap {
   position: absolute;
   top: 50%;
   color: #0c0cc2;
@@ -442,7 +443,7 @@ section {
   align-items: center;
   z-index: 0;
 }
-.bt-wrap .bt {
+.front-end .bt-wrap .bt {
   cursor: pointer;
   z-index: 100;
   display: inline-block;
@@ -477,10 +478,27 @@ section {
 
 /********* UI/UX ********/
 .uiux {
+  position: relative;
   background: url("../img/bg-4.png");
 }
 .uiux .title::before {
   background: url("../img/bg-3.png");
+}
+.uiux .bt-wrap {
+  position: absolute;
+  top: 50%;
+  color: #0c0cc2;
+  width: 78%;
+  transform: translate(-2.597%, -70%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 0;
+}
+.uiux .bt-wrap .bt {
+  cursor: pointer;
+  z-index: 100;
+  display: inline-block;
 }
 
 /********* footer ********/

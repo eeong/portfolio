@@ -26,6 +26,42 @@
 			"detailDesc":"",
 			"title": "Shop", 
 			"desc":"Project Stacks: HTML5 CSS3 jQuery ES6 Vue.js"
+		},
+		{"id": 4, 
+			"class": "web4" , 
+			"src": "../img/slide-4.png", 
+			"vsrc":"",
+			"detailTitle":"",
+			"detailDesc":"",
+			"title": "Book Board", 
+			"desc":"Project Stacks: Pug Scss jQuery ES6 Node.js Express Passport"
+		},
+		{"id": 5, 
+			"class": "web5" , 
+			"src": "../img/slide-1.png", 
+			"vsrc":"",
+			"detailTitle":"",
+			"detailDesc":"",
+			"title": "Shop", 
+			"desc":"Project Stacks: HTML5 CSS3 jQuery ES6 Vue.js"
+		},
+		{"id": 6, 
+			"class": "web6" , 
+			"src": "../img/slide-3.png", 
+			"vsrc":"",
+			"detailTitle":"",
+			"detailDesc":"",
+			"title": "Shop", 
+			"desc":"Project Stacks: HTML5 CSS3 jQuery ES6 Vue.js"
+		},
+		{"id": 7, 
+			"class": "web7" , 
+			"src": "../img/slide-2.png", 
+			"vsrc":"",
+			"detailTitle":"",
+			"detailDesc":"",
+			"title": "Shop", 
+			"desc":"Project Stacks: HTML5 CSS3 jQuery ES6 Vue.js"
 		}
 	]
 			
