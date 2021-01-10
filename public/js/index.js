@@ -5,7 +5,7 @@ var pagerNow;
 var wheeling; //wheel event settimeout 
 var winHei;
 var slideWid; //front-slide animation width 
-var frontNow; 
+var frontNow,uiNow; 
 var $frontSlides = []; //front-slide json clone array(j-query)
 var $uiSlides = []; //ui-slide json clone array(j-query)
 var $frontSlide; // $(".front-slide")
@@ -231,7 +231,7 @@ function onGetSlide(r){
 		else if ( $(this).hasClass("web7") ) id = 6;
 		else id = 7;
 		html = '<div class="video">'
-		html += '<iframe src='+result.slides[id].vsrc +'frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>'
+		html += '<iframe src='+result.slides[id].vsrc +'frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen ></iframe>'
 		html += '<div class="fence"></div>'
 		html += '</div>'
 		html += '<div class="detail-desc">'
