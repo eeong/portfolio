@@ -662,9 +662,14 @@ section {
   background: #e7e7e9;
   border: 3px solid #000;
 }
+.detail-wrap .detail .detail-desc {
+  padding: 2em 3em;
+}
+.detail-wrap .detail .video-top {
+  height: 3%;
+}
 .detail-wrap .detail .video {
   position: relative;
-  padding-top: 1.5em;
   overflow: hidden;
   width: 80%;
   height: 33%;
@@ -688,7 +693,7 @@ section {
 .detail-wrap i.detail-close {
   position: absolute;
   top: 40%;
-  left: 1%;
+  right: 33.5%;
   font-size: 3em;
   cursor: pointer;
 }

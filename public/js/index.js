@@ -230,7 +230,9 @@ function onGetSlide(r){
 		else if ( $(this).hasClass("web6") ) id = 5;
 		else if ( $(this).hasClass("web7") ) id = 6;
 		else id = 7;
-		html = '<div class="video">'
+		html = '<div class="video-top">'
+		html += '</div>'
+		html += '<div class="video">'
 		html += '<iframe src='+result.slides[id].vsrc +'frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen ></iframe>'
 		html += '<div class="fence"></div>'
 		html += '</div>'

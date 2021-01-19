@@ -3,7 +3,7 @@
 		{"id": 1, 
 			"class": "web1" , 
 			"src": "../img/slide-1.png", 
-			"vsrc":"https://www.youtube.com/embed/hUXjkY8OAuE?autoplay=1&controls=0&fs=0&loop=1&rel=0&mute=1&showinfo=0&playsinline=1&" ,
+			"vsrc":"https://www.youtube.com/embed/MAOARHkoSZQ?autoplay=1&controls=0&fs=0&loop=1&rel=0&mute=1&showinfo=0&playsinline=1&" ,
 			"detailTitle":"Vuejs weather App",
 			"detailDesc":"Based on Vue-cli framework, using openweather api ,",
 			"title": "Shop", 
