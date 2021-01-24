@@ -24,6 +24,7 @@ function onResizeWindow(){
 	winHei = $(window).height();
 	slideWid = ((($(window).outerWidth())*0.75)*1.5)*0.16666;
 	$(".front-slide-wrap").css({"left": -slideWid*frontNow+"px"});
+	$(".uiux-slide-wrap").css({"left": -slideWid*frontNow+"px"});
 }
 
 /************ CALLBACK ***********/ 
@@ -201,14 +202,14 @@ function onGetSlide(r){
 	$($frontSlides[0]).clone().appendTo($(".front-slide-wrap"));
 	$($frontSlides[2]).clone().prependTo($(".front-slide-wrap"));
 
-	html = '<div class="back-slide web4">';
+	html = '<div class="back-slide slide web4">';
 	html += '<div class="slide-image">';
 	html += '<img src="../img/slide-4.png" alt="node-board"></div>';
-	html += '<div class="slide-title"></div>';
-	html += '<div class="slide-desc"></div></div>';
+	html += '<div class="slide-title">'+r.slides[3].title+'</div>';
+	html += '<div class="slide-desc">'+r.slides[3].desc+'</div></div>';
 	$(html).appendTo($(".back-slide-wrap"));
 
-	for (var i = 3; i < 6; i++){
+	for (var i = 4; i < 7; i++){
 		html =  '<div class="ui-slide slide ' + r.slides[i].class+'">';
 		html += '<div class="slide-image"><img src="'+r.slides[i].src+'" alt="slide" class="w-100">';
 		html += '<div class="slide-title">'+r.slides[i].title+'</div>';
@@ -233,8 +234,8 @@ function onGetSlide(r){
 		html = '<div class="video-top">'
 		html += '</div>'
 		html += '<div class="video">'
-		html += '<iframe src='+result.slides[id].vsrc +'frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen ></iframe>'
-		html += '<div class="fence"></div>'
+		html += '<iframe src='+result.slides[id].vsrc +' frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen ></iframe>'
+		html += '<a class="fence" href='+result.slides[id].url+' target="_blank" ></a>'
 		html += '</div>'
 		html += '<div class="detail-desc">'
 		html += '<h3>'+result.slides[id].detailTitle+'</h3>'
@@ -246,7 +247,8 @@ function onGetSlide(r){
 		$(".fence").css("background","transparent");
 	}
 
-	$(".front-slide").on("click", onDetailClick);
+	$(".slide").on("click", onDetailClick);
+
 
 	frontInit();
 	uiInit();
