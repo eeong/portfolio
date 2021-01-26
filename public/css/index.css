@@ -119,12 +119,14 @@ section {
 
 .slide-title {
   position: absolute;
+  width: 100%;
+  text-align: center;
   top: 70%;
   left: 50%;
   color: #fff;
   transform: translate(-50%, -50%);
+  font-size: 1.5em;
   font-family: "Raleway", sans-serif;
-  font-size: 3em;
   font-weight: 600;
   transition: all 0.6s;
   z-index: 16;
@@ -139,7 +141,7 @@ section {
   visibility: hidden;
   text-align: center;
   font-family: "Cantarell", sans-serif;
-  font-size: 1.5em;
+  font-size: 1em;
   user-select: none;
 }
 
@@ -395,6 +397,12 @@ section {
 .slide-wrap .slide:hover .slide-desc {
   opacity: 1;
   visibility: visible;
+}
+.slide-wrap .slide:nth-child(3) .slide-image .slide-title {
+  font-size: 3em;
+}
+.slide-wrap .slide:nth-child(3) .slide-desc {
+  font-size: 1.5em;
 }
 .slide-wrap .slide.slide-left {
   z-index: 1;
