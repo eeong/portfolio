@@ -484,13 +484,15 @@ section {
 }
 .back-end .slide-desc {
   opacity: 1;
+  font-size: 2em;
+  padding-top: 0;
   visibility: visible;
 }
 
 /********* UI/UX ********/
 .uiux {
   position: relative;
-  background: url("../img/bg-4.png");
+  background: url("../img/bg-1.png");
 }
 .uiux .title::before {
   background: url("../img/bg-3.png");
@@ -657,6 +659,7 @@ section {
   width: 10%;
 }
 
+/********* aside ********/
 .detail-wrap {
   position: relative;
   display: none;
@@ -674,6 +677,7 @@ section {
   border: 3px solid #000;
 }
 .detail-wrap .detail .detail-desc {
+  font-family: "Noto Sans KR", sans-serif;
   padding: 2em 3em;
 }
 .detail-wrap .detail .video-top {

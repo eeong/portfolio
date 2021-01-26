@@ -460,6 +460,8 @@ section {
 		}
 		.slide-desc {
 			opacity: 1;
+			font-size: 2em;
+			padding-top: 0;
 			visibility: visible;
 		}
 	}
@@ -470,7 +472,7 @@ section {
 /********* UI/UX ********/
 .uiux {
 	position: relative;	
-	background: url("../img/bg-4.png");
+	background: url("../img/bg-1.png");
 	.title::before {
 		background: url("../img/bg-3.png");
 	}
@@ -650,6 +652,8 @@ section {
 	}
 }
 
+
+/********* aside ********/
 .detail-wrap {
 	position: relative;
 	display: none;
@@ -665,6 +669,7 @@ section {
 		background: #e7e7e9;
 		border: 3px solid #000;
 		.detail-desc {
+			font-family: $font-family-kr;
 			padding: 2em 3em;
 		}
 		.video-top {
