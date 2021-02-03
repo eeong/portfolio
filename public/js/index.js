@@ -10,7 +10,6 @@ var $frontSlides = []; //front-slide json clone array(j-query)
 var $uiSlides = []; //ui-slide json clone array(j-query)
 var $frontSlide; // $(".front-slide")
 var titleAniIndex; // $(".title-ani-el") animation index
-var count = $(".title-ani-el").length;
 /************ FUNCTION ***********/ 
 
 function docInit(){
@@ -18,9 +17,10 @@ function docInit(){
 	onClickLang();
 	onResizeWindow()
 	pagerAni(0);
-	setInterval(titleIndex(),1000);
 	$("html").stop().animate({scrollTop: 0},500);
 }
+
+let titleAnis = setInterval(titleIndex,2500);
 
 function onResizeWindow(){
 	winHei = $(window).height();
@@ -289,14 +289,18 @@ function onDetailClose(){
 
 function titleIndex(){
 	
-	titleAniIndex = titleAniIndex < count ? titleAniIndex + 1 : 0;
+	titleAniIndex = titleAniIndex < 4 ? titleAniIndex + 1 : 0;
 	titleAni(titleAniIndex);
 		
 }
 
 function titleAni(i){
-	console.log(i);
-	$(".title-ani-el").css(`transform`, `translateY(${-i*1.25}+em)`);
+	let el2 = $(".title-ani-el2")
+	$("#lang-ko .title-ani-wrap").css(`top`, -100*i+`%`).children(".title-ani-el").eq(i-1).css('opacity',0).siblings().css('opacity',1);
+	$("#lang-en .title-ani-wrap").css(`top`, -100*i+`%`).children(".title-ani-el").eq(i-1).css('opacity',0).siblings().css('opacity',1);
+	if (i == 1) el2.css(`transform`, `translateX(-1.2em)`);
+	else if (i == 4) el2.css('opacity','0');
+	else if (i == 0) el2.css({'transform': 'translateX(0)','opacity':"1"});
 }
 
 /************ EXECUTE ***********/ 

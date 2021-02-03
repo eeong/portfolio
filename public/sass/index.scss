@@ -239,29 +239,42 @@ section {
 	}
 	.title{
 		display: flex;
-		justify-content: space-between;
+		overflow: hidden;
+		position: relative;
+		padding-bottom: 0.125em;
+		width: 80%;
 		font: {
 			size: $font_size_title*2;
 		}
 		margin-bottom: 0.1em;
 		.title-ani-stage {
-			height: 1.25em;
-			flex:70% 0 0;
-			overflow: hidden;
+			flex:50% 0 0;
+			position: relative;
+			
 			.title-ani-wrap {
+				position: absolute;
+				top: 0;
 				transition: all .5s;
 			}
 			.title-ani-el {
 				display: block;
+				transition: all .5s;
 			}
 		}
 		.title-ani-el2 {
-			flex: 40% 0 0;
+			transition: all .5s;
 		}
 		&#lang-ko {
 			font-size: $font_size_title+2em;
 			font-weight: 500;
 			letter-spacing: $letter_spacing - 5;
+		}
+		&#lang-en {
+			transform: translateX(0.75em);
+			width: 80%;
+			font-size: $font_size_title+1.5em;
+			font-weight: 300;
+			
 		}
 	}
 	.sub-title{

@@ -282,28 +282,39 @@ section {
 }
 .main .title {
   display: flex;
-  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 0.125em;
+  width: 80%;
   font-size: 8em;
   margin-bottom: 0.1em;
 }
 .main .title .title-ani-stage {
-  height: 1.25em;
-  flex: 70% 0 0;
-  overflow: hidden;
+  flex: 50% 0 0;
+  position: relative;
 }
 .main .title .title-ani-stage .title-ani-wrap {
+  position: absolute;
+  top: 0;
   transition: all 0.5s;
 }
 .main .title .title-ani-stage .title-ani-el {
   display: block;
+  transition: all 0.5s;
 }
 .main .title .title-ani-el2 {
-  flex: 40% 0 0;
+  transition: all 0.5s;
 }
 .main .title#lang-ko {
   font-size: 6em;
   font-weight: 500;
   letter-spacing: -7px;
+}
+.main .title#lang-en {
+  transform: translateX(0.75em);
+  width: 80%;
+  font-size: 5.5em;
+  font-weight: 300;
 }
 .main .sub-title {
   padding-left: 0.5em;
