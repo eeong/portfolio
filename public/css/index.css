@@ -87,14 +87,14 @@ section {
   font-family: "Noto Sans KR", sans-serif;
 }
 #lang-ko.active {
-  display: block;
+  display: flex;
 }
 
 #lang-en {
   display: none;
 }
 #lang-en.active {
-  display: block;
+  display: flex;
 }
 
 .title-wrap {
@@ -281,8 +281,24 @@ section {
   justify-content: center;
 }
 .main .title {
+  display: flex;
+  justify-content: space-between;
   font-size: 8em;
   margin-bottom: 0.1em;
+}
+.main .title .title-ani-stage {
+  height: 1.25em;
+  flex: 70% 0 0;
+  overflow: hidden;
+}
+.main .title .title-ani-stage .title-ani-wrap {
+  transition: all 0.5s;
+}
+.main .title .title-ani-stage .title-ani-el {
+  display: block;
+}
+.main .title .title-ani-el2 {
+  flex: 40% 0 0;
 }
 .main .title#lang-ko {
   font-size: 6em;

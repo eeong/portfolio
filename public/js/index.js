@@ -9,7 +9,8 @@ var frontNow,uiNow;
 var $frontSlides = []; //front-slide json clone array(j-query)
 var $uiSlides = []; //ui-slide json clone array(j-query)
 var $frontSlide; // $(".front-slide")
-
+var titleAniIndex; // $(".title-ani-el") animation index
+var count = $(".title-ani-el").length;
 /************ FUNCTION ***********/ 
 
 function docInit(){
@@ -17,6 +18,7 @@ function docInit(){
 	onClickLang();
 	onResizeWindow()
 	pagerAni(0);
+	setInterval(titleIndex(),1000);
 	$("html").stop().animate({scrollTop: 0},500);
 }
 
@@ -285,6 +287,17 @@ function onDetailClose(){
 	});
 }
 
+function titleIndex(){
+	
+	titleAniIndex = titleAniIndex < count ? titleAniIndex + 1 : 0;
+	titleAni(titleAniIndex);
+		
+}
+
+function titleAni(i){
+	console.log(i);
+	$(".title-ani-el").css(`transform`, `translateY(${-i*1.25}+em)`);
+}
 
 /************ EXECUTE ***********/ 
 $.get('../json/slide.json', onGetSlide);

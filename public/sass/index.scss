@@ -36,14 +36,14 @@ section {
 	display: none;
 	font-family: $font-family-kr;
 	&.active {
-		display: block;
+		display: flex;
 	}
 }
 
 #lang-en {
 	display: none;
 	&.active {
-		display: block;
+		display: flex;
 	}
 }
 
@@ -238,10 +238,26 @@ section {
 		
 	}
 	.title{
+		display: flex;
+		justify-content: space-between;
 		font: {
 			size: $font_size_title*2;
 		}
 		margin-bottom: 0.1em;
+		.title-ani-stage {
+			height: 1.25em;
+			flex:70% 0 0;
+			overflow: hidden;
+			.title-ani-wrap {
+				transition: all .5s;
+			}
+			.title-ani-el {
+				display: block;
+			}
+		}
+		.title-ani-el2 {
+			flex: 40% 0 0;
+		}
 		&#lang-ko {
 			font-size: $font_size_title+2em;
 			font-weight: 500;
