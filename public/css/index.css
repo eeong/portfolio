@@ -64,6 +64,7 @@ html, body {
   overflow-y: hidden;
 }
 
+/**************** COMMON ********************/
 .section-wrapper {
   position: absolute;
   transition: all 0.65s cubic-bezier(0.355, 0.15, 0.655, 0.155);
@@ -115,6 +116,90 @@ section {
   width: 150px;
   height: 150%;
   z-index: -1;
+}
+.title-wrap .desc {
+  padding-right: 2em;
+}
+
+/********* Slide Common ********/
+.slide-stage {
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-wrap {
+  display: flex;
+  width: 150%;
+  padding-top: 7em;
+  position: relative;
+}
+.slide-wrap .slide {
+  position: relative;
+  perspective: 300px;
+  z-index: 15;
+  transition: all 0.6s;
+  cursor: pointer;
+}
+.slide-wrap .slide .slide-image {
+  transition: all 0.7s;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.slide-wrap .slide .slide-image::after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.slide-wrap .slide .slide-image:hover::after {
+  opacity: 0.3;
+}
+.slide-wrap .slide .slide-image:hover .slide-title {
+  opacity: 1;
+  top: 50%;
+}
+.slide-wrap .slide:hover .slide-desc {
+  opacity: 1;
+  visibility: visible;
+}
+.slide-wrap .slide:nth-child(3) .slide-image .slide-title {
+  font-size: 3em;
+}
+.slide-wrap .slide:nth-child(3) .slide-desc {
+  font-size: 1.5em;
+}
+.slide-wrap .slide.slide-left {
+  z-index: 1;
+  flex: 16.6666% 0 0;
+}
+.slide-wrap .slide.slide-left .slide-image, .slide-wrap .slide.slide-left .slide-desc {
+  transform: rotateY(-20deg) scaleX(0.6);
+}
+.slide-wrap .slide.slide-left .slide-desc {
+  padding-top: 1em;
+}
+.slide-wrap .slide.slide-center {
+  flex: 33.3333% 0 0;
+}
+.slide-wrap .slide.slide-center .slide-image, .slide-wrap .slide.slide-center .slide-desc {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-60px);
+}
+.slide-wrap .slide.slide-right {
+  z-index: 1;
+  flex: 16.6666% 0 0;
+}
+.slide-wrap .slide.slide-right .slide-image, .slide-wrap .slide.slide-right .slide-desc {
+  transform: rotateY(20deg) scaleX(0.6);
+}
+.slide-wrap .slide.slide-right .slide-desc {
+  padding-top: 1em;
 }
 
 .slide-title {
@@ -337,7 +422,7 @@ section {
 
 /********* about me ********/
 .about-me {
-  background: url("../img/shirt.png") no-repeat calc(100% + 250px) calc(100% + 300px), url("../img/bg-1.png");
+  background: url("../img/shirt.png") no-repeat calc(100% + 250px) 200%, url("../img/bg-1.png");
 }
 .about-me .title::before {
   background: url("../img/bg-0.png") no-repeat;
@@ -378,86 +463,6 @@ section {
 .about-me .skill-wrapper .skill-wrap .skill-img .img-wrap {
   flex: 40% 0 0;
   padding-bottom: 1.5em;
-}
-
-.slide-stage {
-  position: relative;
-  overflow: hidden;
-}
-
-.slide-wrap {
-  display: flex;
-  width: 150%;
-  padding-top: 7em;
-  position: relative;
-}
-.slide-wrap .slide {
-  position: relative;
-  perspective: 300px;
-  z-index: 15;
-  transition: all 0.6s;
-  cursor: pointer;
-}
-.slide-wrap .slide .slide-image {
-  transition: all 0.7s;
-  position: relative;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-.slide-wrap .slide .slide-image::after {
-  display: block;
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  opacity: 0;
-  transition: all 0.5s;
-}
-.slide-wrap .slide .slide-image:hover::after {
-  opacity: 0.3;
-}
-.slide-wrap .slide .slide-image:hover .slide-title {
-  opacity: 1;
-  top: 50%;
-}
-.slide-wrap .slide:hover .slide-desc {
-  opacity: 1;
-  visibility: visible;
-}
-.slide-wrap .slide:nth-child(3) .slide-image .slide-title {
-  font-size: 3em;
-}
-.slide-wrap .slide:nth-child(3) .slide-desc {
-  font-size: 1.5em;
-}
-.slide-wrap .slide.slide-left {
-  z-index: 1;
-  flex: 16.6666% 0 0;
-}
-.slide-wrap .slide.slide-left .slide-image, .slide-wrap .slide.slide-left .slide-desc {
-  transform: rotateY(-20deg) scaleX(0.6);
-}
-.slide-wrap .slide.slide-left .slide-desc {
-  padding-top: 1em;
-}
-.slide-wrap .slide.slide-center {
-  flex: 33.3333% 0 0;
-}
-.slide-wrap .slide.slide-center .slide-image, .slide-wrap .slide.slide-center .slide-desc {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(-60px);
-}
-.slide-wrap .slide.slide-right {
-  z-index: 1;
-  flex: 16.6666% 0 0;
-}
-.slide-wrap .slide.slide-right .slide-image, .slide-wrap .slide.slide-right .slide-desc {
-  transform: rotateY(20deg) scaleX(0.6);
-}
-.slide-wrap .slide.slide-right .slide-desc {
-  padding-top: 1em;
 }
 
 /********* front-end ********/
@@ -771,25 +776,67 @@ section {
     font-size: 15px;
   }
 
+  .main .title {
+    width: 85%;
+  }
   .main .title .title-ani-stage {
     flex: 60% 0 0;
   }
+
+  .about-me .skill-wrapper {
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+  .about-me .skill-wrapper .skill-wrap {
+    flex: 20% 0 0;
+    margin-right: 1em;
+  }
 }
 @media screen and (max-width: 991px) {
+  .wrapper {
+    width: 85%;
+  }
+
   section {
     font-size: 12px;
   }
+  section .title-wrap {
+    font-size: 14px;
+  }
 
   .header {
-    padding: 3em 4em;
+    padding: 2em 3em;
+  }
+  .header .header-right ul {
+    width: 90%;
+    left: 5%;
+    font-size: 0.875em;
+  }
+
+  .about-me {
+    background: url(../img/shirt.png) no-repeat calc(100% + 350px) 220%, url(../img/bg-1.png);
+  }
+  .about-me .skill-wrapper .skill-wrap {
+    font-size: 1.5em;
+    flex: 25% 0 0;
+    padding-bottom: 1em;
+  }
+  .about-me .skill-wrapper .skill-wrap .skill-img {
+    padding-top: 1.25em;
+  }
+  .about-me .skill-wrapper .skill-wrap .skill-img .img-wrap {
+    padding-bottom: 0;
   }
 
   .footer {
-    padding: 3em 4em;
+    padding: 2em 3em;
   }
 
+  .main .title {
+    width: 90%;
+  }
   .main .title .title-ani-stage {
-    flex: 55% 0 0;
+    flex: 65% 0 0;
   }
 
   .bt-wrap {
@@ -799,6 +846,10 @@ section {
 @media screen and (max-width: 767px) {
   section {
     font-size: 10px;
+  }
+
+  .main .sub-title#lang-ko {
+    margin: 1px;
   }
 
   .front-slide-wrap {
@@ -813,7 +864,32 @@ section {
   }
 }
 @media screen and (max-width: 575px) {
+  section {
+    font-size: 8px;
+  }
+  section .title-wrap {
+    padding-top: 20%;
+    font-size: 11px;
+  }
+
   .side-navi {
     display: none;
+  }
+
+  .main .title {
+    width: 100%;
+  }
+  .main .title .title-ani-stage {
+    flex: 60% 0 0;
+  }
+  .main .title .title-ani-el2 {
+    flex: 40% 0 0;
+  }
+
+  .about-me {
+    background: url(../img/bg-1.png);
+  }
+  .about-me .skill-wrapper .skill-wrap {
+    flex: 28% 0 0;
   }
 }
