@@ -248,7 +248,7 @@ section {
 		}
 		margin-bottom: 0.1em;
 		.title-ani-stage {
-			flex:50% 0 0;
+			flex:40% 0 0;
 			position: relative;
 			
 			.title-ani-wrap {
@@ -286,7 +286,7 @@ section {
 			weight: 400;
 		}
 		&#lang-ko {
-			margin-left: 3em;
+			margin-left: 20%;
 			font-weight: 300;
 			letter-spacing: $letter_spacing - 6;
 		}
@@ -768,19 +768,33 @@ section {
 }
 
 @include pc {
-
+	html, body {
+		font-size: 15px;
+	}
+	.main .title .title-ani-stage {
+		flex:60% 0 0;
+	}
 }
 @include laptop {
-	html, body {
-		font-size: 14px;
+	section {
+		font-size: 12px;
+	}
+	.header {
+		padding: 3em 4em;
+	}
+	.footer {
+		padding: 3em 4em;
+	}
+	.main .title .title-ani-stage {
+		flex:55% 0 0;
 	}
 	.bt-wrap {
 		display: none;
 	}
 }
 @include tablet {
-	html, body {
-		font-size: 12px;
+	section {
+		font-size: 10px;
 	}
 	.front-slide-wrap {
 		flex-direction: column;
@@ -795,8 +809,8 @@ section {
 	}
 }
 @include mobile {
-	html, body {
-		font-size: 10px;
+	.side-navi {
+		display: none;
 	}
 }
 
