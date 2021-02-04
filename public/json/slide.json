@@ -36,7 +36,7 @@
 		{"id": 4, 
 			"class": "web4" , 
 			"src": "../img/slide-4.png", 
-			"vsrc":"https://www.youtube.com/J0qhg8_38QA?rel=0&showinfo=0&autoplay=1&controls=0&fs=0&loop=1&rel=0&mute=1&showinfo=0&playsinline=1",
+			"vsrc":"https://www.youtube.com/embed/J0qhg8_38QA?rel=0&showinfo=0&autoplay=1&controls=0&fs=0&loop=1&rel=0&mute=1&showinfo=0&playsinline=1",
 			"url":"https://www.eeong.be",
 			"git": "https://github.com/eeong/node-board",
 			"detailTitle":"도서 게시판",

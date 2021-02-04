@@ -24,9 +24,11 @@ let titleAnis = setInterval(titleIndex,2500);
 
 function onResizeWindow(){
 	winHei = $(window).height();
+	winWidth = $(window).width();
 	slideWid = ((($(window).outerWidth())*0.75)*1.5)*0.16666;
 	$(".front-slide-wrap").css({"left": -slideWid*frontNow+"px"});
 	$(".uiux-slide-wrap").css({"left": -slideWid*frontNow+"px"});
+	if(winWidth < 1439 ) $(".slide-wrap").css({"left": 0});
 }
 
 /************ CALLBACK ***********/ 
@@ -244,7 +246,9 @@ function onGetSlide(r){
 		html += '<p>'+result.slides[id].detailDesc+'</p>'
 		html += '</div>'
 		$(html).appendTo($(".detail").empty());
-		$(".detail-wrap").show().animate({"left" : 0 } , 500);
+		$(".detail-wrap").show().animate({"left" : 0 } , 500, function(){
+			$(".deco2").animate({"right":"50px"},500);
+		});
 		$("iframe").css("transform","scale(1)");
 		$(".fence").css("background","transparent");
 	}

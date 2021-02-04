@@ -763,7 +763,8 @@ section {
 }
 .detail-wrap .deco2 {
   position: absolute;
-  right: 8%;
+  right: 0;
+  border-radius: 15px;
   bottom: 0px;
   width: 350px;
   height: 150px;
@@ -774,6 +775,10 @@ section {
 @media screen and (max-width: 1439px) {
   html, body {
     font-size: 15px;
+  }
+
+  .bt-wrap {
+    display: none !important;
   }
 
   .main .title {
@@ -791,6 +796,55 @@ section {
     flex: 20% 0 0;
     margin-right: 1em;
   }
+
+  .slide-stage {
+    position: absolute;
+    width: 75%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .front-slide-stage .slide-wrap, .uiux-slide-stage .slide-wrap {
+    padding: 0;
+  }
+  .front-slide-stage .slide-wrap .slide:nth-child(1), .front-slide-stage .slide-wrap .slide:nth-child(5), .uiux-slide-stage .slide-wrap .slide:nth-child(1), .uiux-slide-stage .slide-wrap .slide:nth-child(5) {
+    display: none;
+  }
+
+  .back-end .wrapper {
+    position: relative;
+  }
+
+  .back-slide-wrap {
+    position: absolute !important;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .back-slide-wrap .back-slide {
+    position: relative;
+  }
+
+  .slide-wrap {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .slide-wrap .slide {
+    perspective: none;
+    flex: 30% 0 0 !important;
+  }
+  .slide-wrap .slide.slide-center .slide-desc {
+    padding-top: 1em;
+  }
+  .slide-wrap .slide.slide-center .slide-image, .slide-wrap .slide.slide-center .slide-desc {
+    transform: translateY(0);
+  }
+  .slide-wrap .slide.slide-left .slide-image, .slide-wrap .slide.slide-left .slide-desc, .slide-wrap .slide.slide-right .slide-image, .slide-wrap .slide.slide-right .slide-desc {
+    font-size: 1.5em;
+    visibility: visible;
+    opacity: 1 !important;
+    transform: rotateY(0) scaleX(1);
+  }
 }
 @media screen and (max-width: 991px) {
   .wrapper {
@@ -802,6 +856,11 @@ section {
   }
   section .title-wrap {
     font-size: 14px;
+  }
+
+  .slide-wrap .slide {
+    flex: 48% 0 0 !important;
+    padding-bottom: 2em;
   }
 
   .header {
@@ -891,5 +950,13 @@ section {
   }
   .about-me .skill-wrapper .skill-wrap {
     flex: 28% 0 0;
+  }
+
+  .front-end {
+    background: url(../img/bg-2.png);
+  }
+
+  .back-end {
+    background: url(../img/bg-3.png);
   }
 }

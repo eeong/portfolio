@@ -118,7 +118,6 @@ section {
 				}
 			}
 		}
-		
 		&:hover {
 			.slide-desc {
 				opacity:1;
@@ -762,7 +761,8 @@ section {
 	}
 	.deco2 {
 		position: absolute;
-		right: 8%;
+		right: 0;
+		border-radius: 15px;
 		bottom: 0px;
 		width: 350px;
 		height: 150px;
@@ -774,6 +774,9 @@ section {
 @include pc {
 	html, body {
 		font-size: 15px;
+	}
+	.bt-wrap {
+		display: none !important;
 	}
 	.main .title {
 		width: 85%;
@@ -791,6 +794,53 @@ section {
 			}
 		}
 	}
+	.slide-stage {
+		position: absolute;
+		width: 75%;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.front-slide-stage, .uiux-slide-stage {
+		.slide-wrap {
+			padding: 0;
+			.slide:nth-child(1), .slide:nth-child(5){display: none;}
+		}
+	}
+	.back-end .wrapper{position: relative;}
+	.back-slide-wrap {
+		position: absolute !important;
+			top: 50%;
+			transform: translateY(-50%); 
+		.back-slide {
+			position: relative;
+		}
+	}
+	.slide-wrap {
+		width: 100%;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		.slide {
+			perspective: none;
+			flex:30% 0 0 !important;
+			&.slide-center {
+				.slide-desc {
+					padding-top: 1em;
+				}
+				.slide-image, .slide-desc {
+				transform:translateY(0);
+			}
+		}
+			&.slide-left, &.slide-right {
+				.slide-image, .slide-desc {
+					font-size: 1.5em;
+					visibility: visible;
+					opacity: 1 !important;
+					transform: rotateY(0) scaleX(1);
+					
+				}
+			}
+		}
+	}
 }
 @include laptop {
 	.wrapper {
@@ -800,6 +850,12 @@ section {
 		font-size: 12px;
 		.title-wrap {
 			font-size: 14px;
+		}
+	}
+	.slide-wrap {
+		.slide {
+			flex:48% 0 0 !important;
+			padding-bottom: 2em;
 		}
 	}
 	.header {
@@ -881,11 +937,16 @@ section {
 		}
 	}
 	.about-me {
-		background:  url(../img/bg-1.png);
+		background: url(../img/bg-1.png);
 		.skill-wrapper .skill-wrap {
 			flex:28% 0 0;
-			
 		}
+	}
+	.front-end {
+		background: url(../img/bg-2.png);
+	}
+	.back-end {
+		background: url(../img/bg-3.png);	
 	}
 }
 
