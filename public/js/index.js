@@ -247,8 +247,8 @@ function onGetSlide(r){
 		html += '<div>'+result.slides[id].detailDesc+'</div>'
 		html += '</div>'
 		html += '</div>'
-		html += '<div class="deco youtube-link"><a href="'+result.slides[id].video+'"><i class="fa fa-youtube-play"></i> &nbsp; Youtube</a></div>'
-		html += '<div class="deco github-link"><a href="'+result.slides[id].git+'"><i class="fa fa-github"></i> &nbsp; Github</a></div>'
+		html += '<div class="deco youtube-link"><a href="'+result.slides[id].video+'" target="_blank"><i class="fa fa-youtube-play"></i> &nbsp; Youtube</a></div>'
+		html += '<div class="deco github-link"><a href="'+result.slides[id].git+'" target="_blank"><i class="fa fa-github"></i> &nbsp; Github</a></div>'
 		html += '<i class="fa fa-angle-right detail-close"></i>'
 		$(html).appendTo($(".detail-wrap").empty());
 		$(".detail-wrap").show().animate({"left" : 0 } , 500, function(){
