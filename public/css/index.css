@@ -700,13 +700,18 @@ section {
   height: 100vh;
   left: 20%;
 }
+.detail-wrap .detail-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
 .detail-wrap .detail {
   position: absolute;
   height: 100%;
   width: 35%;
   right: 0;
   background: #e7e7e9;
-  border: 3px solid #000;
+  border-left: 2px solid #0d0d0e;
 }
 .detail-wrap .detail .detail-desc {
   font-family: "Noto Sans KR", sans-serif;
@@ -721,6 +726,7 @@ section {
   width: 80%;
   height: 33%;
   margin: 0 auto;
+  box-shadow: 0px 2px 2px rgba(24, 24, 30, 0.5);
 }
 .detail-wrap .detail .video iframe {
   width: 100%;
@@ -747,29 +753,18 @@ section {
 }
 .detail-wrap .deco {
   position: absolute;
-  bottom: 0;
   right: 0;
-  width: 35%;
-  height: 120px;
-  border: 3px solid #000;
-  background: #e1e1e8;
-}
-.detail-wrap .deco i {
-  position: absolute;
-  top: 22.5%;
-  right: 5%;
-  font-size: 4em;
-  cursor: pointer;
-}
-.detail-wrap .deco2 {
-  position: absolute;
-  right: 0;
+  bottom: 2px;
   border-radius: 15px;
-  bottom: 0px;
-  width: 350px;
-  height: 150px;
-  border: 3px solid #000;
+  box-shadow: 0px 2px 1px rgba(24, 24, 30, 0.5);
+  width: 20%;
+  height: 5%;
+  transition: all 0.5s;
   background: #ccd2e4;
+}
+.detail-wrap .deco:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 0px -2px rgba(24, 24, 30, 0.5);
 }
 
 @media screen and (max-width: 1439px) {

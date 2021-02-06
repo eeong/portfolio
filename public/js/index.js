@@ -247,7 +247,7 @@ function onGetSlide(r){
 		html += '</div>'
 		$(html).appendTo($(".detail").empty());
 		$(".detail-wrap").show().animate({"left" : 0 } , 500, function(){
-			$(".deco2").animate({"right":"50px"},500);
+			$(".deco").animate({"right":"50px"},500);
 		});
 		$("iframe").css("transform","scale(1)");
 		$(".fence").css("background","transparent");
@@ -285,7 +285,8 @@ function mailSend(x){
 	
 }
 
-function onDetailClose(){
+function onDetailClose(e){
+	e.stopPropagation();
 	$(".detail-wrap").animate({"left" : "40%" } , 500, function(){
 		$(".detail-wrap").hide();
 	});
@@ -322,6 +323,8 @@ $(".uiux .bt-right").on("click",onUiClickRight);
 $(".fa-envelope").on("click",onEmailClick);
 $(".fa-close").on("click",onEmailClose);
 $(".detail-close").on("click", onDetailClose);
+$(".detail-bg").on("click", onDetailClose);
+$(".detail-bg").on("mousewheel", onDetailClose);
 
 $(".lang-bt").on("click", onClickLang);
 
