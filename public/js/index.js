@@ -235,22 +235,28 @@ function onGetSlide(r){
 		else if ( $(this).hasClass("web6") ) id = 5;
 		else if ( $(this).hasClass("web7") ) id = 6;
 		else id = 7;
-		html = '<div class="video-top">'
+		html = 	'<div class="detail-bg"></div>'
+		html += '<div class="detail">'
+		html += '<div class="video-top">'
 		html += '</div>'
 		html += '<div class="video">'
 		html += '<iframe src='+result.slides[id].vsrc +' frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen ></iframe>'
 		html += '<a class="fence" href='+result.slides[id].url+' target="_blank" ></a>'
 		html += '</div>'
 		html += '<div class="detail-desc">'
-		html += '<h3>'+result.slides[id].detailTitle+'</h3>'
-		html += '<p>'+result.slides[id].detailDesc+'</p>'
+		html += '<div>'+result.slides[id].detailDesc+'</div>'
 		html += '</div>'
-		$(html).appendTo($(".detail").empty());
+		html += '</div>'
+		html += '<div class="deco youtube-link"><a href="'+result.slides[id].video+'"><i class="fa fa-youtube-play"></i> &nbsp; Youtube</a></div>'
+		html += '<div class="deco github-link"><a href="'+result.slides[id].git+'"><i class="fa fa-github"></i> &nbsp; Github</a></div>'
+		html += '<i class="fa fa-angle-right detail-close"></i>'
+		$(html).appendTo($(".detail-wrap").empty());
 		$(".detail-wrap").show().animate({"left" : 0 } , 500, function(){
 			$(".deco").animate({"right":"50px"},500);
 		});
-		$("iframe").css("transform","scale(1)");
-		$(".fence").css("background","transparent");
+		$(".detail-close").on("click", onDetailClose);
+		$(".detail-bg").on("click", onDetailClose);
+		$(".detail-bg").on("mousewheel", onDetailClose);
 	}
 
 	$(".slide").on("click", onDetailClick);
@@ -322,9 +328,7 @@ $(".uiux .bt-left").on("click",onUiClickLeft);
 $(".uiux .bt-right").on("click",onUiClickRight);
 $(".fa-envelope").on("click",onEmailClick);
 $(".fa-close").on("click",onEmailClose);
-$(".detail-close").on("click", onDetailClose);
-$(".detail-bg").on("click", onDetailClose);
-$(".detail-bg").on("mousewheel", onDetailClose);
+
 
 $(".lang-bt").on("click", onClickLang);
 
