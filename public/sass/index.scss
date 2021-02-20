@@ -756,11 +756,12 @@ section {
 		border-radius: 15px;
 		padding: 5px 15px;
 		box-shadow: 0px 2px 1px rgba(24, 24, 30, 0.5);
-		transition: all .5s;
+		transition: all .3s;
 		background:#d8d8ee;
 		cursor: pointer;
 		&.youtube-link{
 			bottom: 45px;
+			transition-delay: .1s;
 		}
 		&:hover {
 			transform:translateY(-2px);
@@ -768,6 +769,15 @@ section {
 		}
 	}
 
+}
+
+@include midpc {
+	.main .title {
+		width: 80%;
+		.title-ani-stage {
+			flex: 50% 0 0;
+		}
+	}
 }
 
 @include pc {
@@ -841,6 +851,7 @@ section {
 		}
 	}
 }
+
 @include laptop {
 	.wrapper {
 		width: 85%;
@@ -894,6 +905,7 @@ section {
 		display: none;
 	}
 }
+
 @include tablet {
 	section {
 		font-size: 10px;
@@ -914,7 +926,16 @@ section {
 			}
 		}
 	}
+	.detail-wrap {
+		.detail {
+			width: 100%;
+		}
+		.detail-close {
+			left: 2%;
+		}
+	}
 }
+
 @include mobile {
 	section {
 		font-size: 8px;

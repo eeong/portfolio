@@ -1,7 +1,14 @@
+$midpc: 1680px;
 $pc: 1439px;
 $laptop: 991px;
 $tablet: 767px;
 $mobile: 575px;
+
+@mixin midpc {
+	@media screen and (max-width: $midpc) {
+		@content;
+	}
+}
 
 @mixin pc {
 	@media screen and (max-width: $pc) {
