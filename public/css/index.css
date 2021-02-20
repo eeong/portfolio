@@ -919,11 +919,7 @@ section {
   }
 
   .front-slide-wrap {
-    flex-direction: column;
-  }
-  .front-slide-wrap .front-slide {
-    height: 10%;
-    width: auto;
+    display: flex;
   }
   .front-slide-wrap .front-slide .slide-image {
     transform: scaleX(1) rotateY(0);

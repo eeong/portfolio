@@ -227,14 +227,10 @@ function onGetSlide(r){
 
 	function onDetailClick(){
 		let id;
-		if( $(this).hasClass("web1") ) id = 0;
-		else if ( $(this).hasClass("web2") ) id = 1;
-		else if ( $(this).hasClass("web3") ) id = 2;
-		else if ( $(this).hasClass("web4") ) id = 3;
-		else if ( $(this).hasClass("web5") ) id = 4;
-		else if ( $(this).hasClass("web6") ) id = 5;
-		else if ( $(this).hasClass("web7") ) id = 6;
-		else id = 7;
+		for(var i = 0; i < 8; i++){
+			if($(this).hasClass(`web${i}`)) id = i;
+		} 		
+		
 		html = 	'<div class="detail-bg"></div>'
 		html += '<div class="detail">'
 		html += '<div class="video-top">'
@@ -329,9 +325,7 @@ $(".uiux .bt-right").on("click",onUiClickRight);
 $(".fa-envelope").on("click",onEmailClick);
 $(".fa-close").on("click",onEmailClose);
 
-
 $(".lang-bt").on("click", onClickLang);
-
 
 emailjs.init("user_OQNTTJmx8nuO6apvJPh5b");
 

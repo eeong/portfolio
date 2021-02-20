@@ -909,7 +909,6 @@ section {
 @include tablet {
 	section {
 		font-size: 10px;
-		
 	}
 	.main {
 		.sub-title#lang-ko {
@@ -917,15 +916,14 @@ section {
 		}
 	}
 	.front-slide-wrap {
-		flex-direction: column;
+		display: flex;
 		.front-slide {
-			height: 10%; 
-			width: auto;
 			.slide-image {
 				transform:scaleX(1) rotateY(0);
 			}
 		}
 	}
+	
 	.detail-wrap {
 		.detail {
 			width: 100%;
