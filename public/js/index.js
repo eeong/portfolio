@@ -192,7 +192,7 @@ function onUiClickRight(){
 }
 
 function onGetSlide(r){
-	var html, result = "";
+	var html, result;
 	result = r;
 	for (var i = 0; i < 3; i++ ){
 		html =  '<div class="front-slide slide ' + r.slides[i].class+'">';
@@ -227,24 +227,23 @@ function onGetSlide(r){
 
 	function onDetailClick(){
 		let id;
-		for(var i = 0; i < 8; i++){
-			if($(this).hasClass(`web${i}`)) id = i;
-		} 		
-		
+		for(var i = 1; i < 8; i++){
+			if($(this).hasClass(`web${i}`)) id = i-1;
+		}
 		html = 	'<div class="detail-bg"></div>'
 		html += '<div class="detail">'
 		html += '<div class="video-top">'
 		html += '</div>'
 		html += '<div class="video">'
-		html += '<iframe src='+result.slides[id].vsrc +' frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen ></iframe>'
-		html += '<a class="fence" href='+result.slides[id].url+' target="_blank" ></a>'
+		html += '<iframe src='+r.slides[id].vsrc +' frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen ></iframe>'
+		html += '<a class="fence" href='+r.slides[id].url+' target="_blank" ></a>'
 		html += '</div>'
 		html += '<div class="detail-desc">'
-		html += '<div>'+result.slides[id].detailDesc+'</div>'
+		html += '<div>'+r.slides[id].detailDesc+'</div>'
 		html += '</div>'
 		html += '</div>'
-		html += '<div class="deco youtube-link"><a href="'+result.slides[id].video+'" target="_blank"><i class="fa fa-youtube-play"></i> &nbsp; Youtube</a></div>'
-		html += '<div class="deco github-link"><a href="'+result.slides[id].git+'" target="_blank"><i class="fa fa-github"></i> &nbsp; Github</a></div>'
+		html += '<div class="deco youtube-link"><a href="'+r.slides[id].video+'" target="_blank"><i class="fa fa-youtube-play"></i> &nbsp; Youtube</a></div>'
+		html += '<div class="deco github-link"><a href="'+r.slides[id].git+'" target="_blank"><i class="fa fa-github"></i> &nbsp; Github</a></div>'
 		html += '<i class="fa fa-angle-right detail-close"></i>'
 		$(html).appendTo($(".detail-wrap").empty());
 		$(".detail-wrap").show().animate({"left" : 0 } , 500, function(){
