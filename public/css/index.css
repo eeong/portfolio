@@ -647,6 +647,9 @@ section {
   box-shadow: 1px 1px 0px 1px #727272 inset;
   cursor: pointer;
 }
+.email-wrap .form-wrap .mail-header i.fa-close:hover {
+  background-color: #9b9b9b;
+}
 .email-wrap form {
   display: flex;
   flex-direction: column;
@@ -690,6 +693,9 @@ section {
   right: 4.8%;
   bottom: 3%;
   width: 10%;
+}
+.email-wrap .bt-send:hover {
+  background: #dcdcdc;
 }
 
 /********* aside ********/

@@ -10,7 +10,7 @@
 			"detailTitle":"Vue를 활용한 날씨 앱",
 			"detailDesc":"<h1>Vue.js를 이용한 날씨 정보 어플리케이션</h1><ul><li><br><p>프론트엔드  </p><ul><li>Vue.js, Vue-cli, Vuex, VueRouter, ES6 </li></ul></li><li><p>퍼블리싱</p><ul><li>PUG(JADE), SCSS(SASS), Bootstrap, JavaScript</li></ul></li><li><p>디자인</p><ul><li>Adobe PhotoShop</li></ul></li><li><p>배포</p><ul><li>Firebase, Vue-cli, Babel-Webpack</li><br><li>날씨 api를 활용하여 현재 위치 및 선택 지역의 날씨를 보여주는 어플리케이션입니다. Vue.js를 통해 라우터, 통신, 렌더링을 처리하였으며 Vuex로 앱 내에서 유기적으로 데이터를 처리하였습니다.</li></ul></li></ul>",
 			"title": "Vue-weather", 
-			"desc":"Pug SCSS jQuery ES6+ Vue.js Vuex VueRouter "
+			"desc":"Pug &nbsp; SCSS &nbsp; jQuery &nbsp; ES6+ &nbsp; Vue.js &nbsp; Vuex &nbsp; VueRouter "
 		},
 		{"id": 2, 
 			"class": "web2" , 
@@ -22,7 +22,7 @@
 			"detailTitle":"블랙서바이벌 전적 앱",
 			"detailDesc":"<h1>블랙서바이벌 전적검색/기록 어플리케이션</h1><br><ul><li><p>백엔드    </p><ul><li>Node.js, Express, Nginx</li></ul></li><li><p>데이터베이스</p><ul><li>MongoDB, Mongoose</li></ul></li><li><p>프론트엔드    </p><ul><li>Vue.js, Vuerouter</li></ul></li><br><li>블랙서바이벌에서 제공하는 api를 활용한 전적검색, 기록 어플리케이션입니다. Node-express 서버로 요청한 정보를 받아와 Vue클라이언트에서 사용자와 인터랙션 및 데이터를 렌더링을 수행하고 MongoDB에서 데이터를 관리하는 시스템입니다. </li></ul>",
 			"title": "BlackSurvival", 
-			"desc":"HTML CSS3 ES6+ Node.js Express Vue.js MongoDB"
+			"desc":"HTML &nbsp; CSS3 &nbsp; ES6+ &nbsp; Node.js &nbsp; Express &nbsp; Vue.js &nbsp; MongoDB"
 		},
 		{"id": 3, 
 			"class": "web3" , 
@@ -34,7 +34,7 @@
 			"detailTitle":"일기예보 앱",
 			"detailDesc":"<h1>KakaoMap을 활용한 인터렉티브 날씨 정보 어플리케이션</h1><br><ul><li><p>프론트엔드  </p><ul><li>Ajax, ES6 </li></ul></li><li><p>퍼블리싱</p><ul><li>HTML, CSS, Bootstrap, jQuery, Swiper.js</li></ul></li><li><p>디자인</p><ul><li>Adobe PhotoShop</li></ul></li><li><p>배포</p><ul><li>Firebase</li></ul></li><br><li>지역정보를 기반으로 다양한 날씨 컨텐츠를 제공하는 어플리케이션 입니다. KakaoMap과 Openweather.io의 api를 이용하여 동작합니다. json으로 get통신하여 받아온 정보를 동적으로 js단에서 작성합니다.</li></ul>",
 			"title": "Weather Map", 
-			"desc":"HTML CSS3 Bootstrap jQuery ES6+"
+			"desc":"HTML &nbsp; CSS3 &nbsp; Bootstrap &nbsp; jQuery &nbsp; ES6+"
 		},
 		{"id": 4, 
 			"class": "web4" , 
@@ -46,7 +46,7 @@
 			"detailTitle":"도서 게시판",
 			"detailDesc":"<h1>Node.js, Express를 활용한 게시판 웹 어플리케이션</h1><br><ul><li><p>백엔드  </p><ul><li>Node.js, Express, Nginx</li></ul></li><li><p>데이터베이스  </p><ul><li>Mysql</li></ul></li><li><p>퍼블리싱  </p><ul><li>PUG(JADE), SCSS(SASS), Bootstrap, JavaScript</li></ul></li><li><p>관리  </p><ul><li>Git</li></ul></li><li><p>배포  </p><ul><li>AWS EC2</li></ul></li><br><li>도서정보를 게시, 열람, 수정, 삭제 할 수 있는 게시판 어플리케이션입니다. Node-express 서버를 기반으로 돌아가며 Mysql에서 데이터를 처리합니다. 라우터를 통해 들어오는 요청을 받아 서버단에서 모든 화면을 렌더링합니다. </li></ul>",
 			"title": "Book Board", 
-			"desc":"Pug Scss jQuery ES6+ Node.js Express AWS"
+			"desc":"Pug &nbsp; Scss &nbsp; jQuery &nbsp; ES6+ &nbsp; Node.js &nbsp; Express &nbsp; AWS"
 		},
 		{"id": 5, 
 			"class": "web5" , 
@@ -58,7 +58,7 @@
 			"detailTitle":"인테리어 틀",
 			"detailDesc":"<h1>인테리어 틀: 메인페이지</h1><br><ul><li><p><strong>퍼블리싱</strong><br>HTML5 , CSS3 , jQuery, Bootstrap, Wow.js<br> </p></li><li><p><strong>디자인</strong><br>Adobe PhotoShop<br> </p></li><li><p><strong>관리</strong><br>git<br> </p></li><li><p><strong>배포</strong><br>firebase<br> </p></li><br><li>가상의 인테리어 스토어 '틀' 의 메인페이지 입니다. 아티클 위주의 컨텐츠를 제공하는 '틀'의 컨셉에 맞게 추천 제품과 다양한 컨텐츠를 보기 쉽게 레이아웃을 구성했습니다. 반응형으로 제작하여 다양한 브라우저, 기기에서 원하는 화면을 제공합니다.</li></ul>",
 			"title": "Interior", 
-			"desc":"HTML5 CSS3 jQuery"
+			"desc":"HTML5 &nbsp; CSS3 &nbsp; jQuery"
 		},
 		{"id": 6, 
 			"class": "web6" , 
@@ -70,7 +70,7 @@
 			"detailTitle":"포크라노스",
 			"detailDesc":"<h1 >포크라노스: 메인페이지</h1><p><br></p><ul><li><p><strong>퍼블리싱</strong><br>  HTML5 , CSS3 , jQuery<br></p></li><li><p><strong>디자인</strong><br>Adobe PhotoShop<br> </p></li><li><p><strong>관리</strong><br>git<br> </p></li><li><p><strong>배포</strong><br>firebase<br></p></li><br><li>음원 유통사 포크라노스의 메인페이지 리뉴얼 작업입니다. 더 다양한 컨텐츠를 제공하기 위해 메인페이지를 확장하고 반응형을 최적화 했습니다. 다양한 인터랙션을 경험할 수 있도록 디자인 했습니다. 반응형으로 제작하여 다양한 브라우저와 기기에서 웹표준에 맞게 작동합니다.</li></ul>",
 			"title": "Poclanos", 
-			"desc":"HTML5 CSS3 jQuery"
+			"desc":"HTML5 &nbsp; CSS3 &nbsp; jQuery"
 		},
 		{"id": 7, 
 			"class": "web7" , 
@@ -82,7 +82,7 @@
 			"detailTitle":"썸원라이프",
 			"detailDesc":"<h1>썸원라이프: 메인페이지</h1><br><ul><li><p><strong>퍼블리싱</strong><br>HTML5 , CSS3 , jQuery, Bootstrap, Swiper.js<br> </p></li><li><p><strong>디자인</strong><br>Adobe PhotoShop<br> </p></li><li><p><strong>관리</strong><br>git<br> </p></li><li><p><strong>배포</strong><br>firebase<br> </p></li><br><li>라이프스타일 편집샵 썸원라이프의 온라인 메인페이지 디자인, 퍼블리싱 작업물입니다. 쇼핑몰 구성 정보를 json 통신으로 받아와 동적으로 생성하여 렌더링합니다. 반응형으로 제작하여 다양한 브라우저, 기기에서 원하는 화면을 제공합니다.</li></ul>",
 			"title": "SomeoneLife", 
-			"desc":"HTML5 CSS3 jQuery Ajax"
+			"desc":"HTML5 &nbsp; CSS3 &nbsp; jQuery &nbsp; Ajax"
 		}
 	]
 			

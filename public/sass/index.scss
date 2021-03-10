@@ -119,6 +119,9 @@ section {
 				}
 			}
 		}
+		.slide-desc {
+			
+		}
 		&:hover {
 			.slide-desc {
 				opacity:1;
@@ -633,6 +636,9 @@ section {
 					background-color: #a1a1a1;
 					box-shadow: 1px 1px 0px 1px #727272 inset;
 					cursor: pointer;
+					&:hover {
+						background-color: #9b9b9b;
+					}
 				}
 		}
 
@@ -682,6 +688,9 @@ section {
 		right: 4.8%;
 		bottom: 3%;
 		width:10%;
+		&:hover {
+			background: #dcdcdc;
+		}
 	}
 }
 
