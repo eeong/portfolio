@@ -226,10 +226,15 @@ function onGetSlide(r){
 	$($uiSlides[2]).clone().prependTo($(".uiux-slide-wrap"));
 
 	function onDetailClick(){
+		let clickedSection = ($(this).parents("section"))[0];
 		let id;
 		for(var i = 1; i < 8; i++){
 			if($(this).hasClass(`web${i}`)) id = i-1;
 		}
+		if(winWidth < 575) {
+			window.open(r.slides[id].url,)
+		}
+		else {
 		html = 	'<div class="detail-bg"></div>'
 		html += '<div class="detail">'
 		html += '<div class="video-top">'
@@ -249,9 +254,12 @@ function onGetSlide(r){
 		$(".detail-wrap").show().animate({"left" : 0 } , 500, function(){
 			$(".deco").animate({"right":"50px"},500);
 		});
+		
 		$(".detail-close").on("click", onDetailClose);
 		$(".detail-bg").on("click", onDetailClose);
 		$(".detail-bg").on("mousewheel", onDetailClose);
+		}
+		
 	}
 
 	$(".slide").on("click", onDetailClick);
