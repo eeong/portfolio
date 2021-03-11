@@ -15,7 +15,7 @@
 		{"id": 2, 
 			"class": "web2" , 
 			"src": "../img/slide-2.png", 
-			"vsrc":"https://www.youtube.com/embed/9eyG3uDPY6o?rel=0&showinfo=0&autoplay=1&controls=0&fs=0&loop=1&rel=0&mute=1&showinfo=0&playsinline=1",
+			"vsrc":"https://www.youtube.com/embed/mqVpYbrPB0Y?rel=0&showinfo=0&autoplay=1&controls=0&fs=0&loop=1&rel=0&mute=1&showinfo=0&playsinline=1",
 			"video":"https://www.youtu.be/9eyG3uDPY6o",
 			"url":"https://eeong-blacksurvival.web.app",
 			"git": "https://github.com/eeong/bser-manage",
