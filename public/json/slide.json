@@ -77,7 +77,7 @@
 			"src": "../img/slide-7.png", 
 			"vsrc":"https://www.youtube.com/embed/MUEaNha1dK0?rel=0&showinfo=0&autoplay=1&controls=0&fs=0&loop=1&rel=0&mute=1&showinfo=0&playsinline=1",
 			"video":"https://www.youtu.be/MUEaNha1dK0",
-			"url":"https://eeong-someone.web.app",
+			"url":"https://eeong-someonelife.web.app",
 			"git": "https://github.com/eeong/eeong-SomeoneLife",
 			"detailTitle":"썸원라이프",
 			"detailDesc":"<h1>썸원라이프: 메인페이지</h1><br><ul><li><p><strong>퍼블리싱</strong><br>HTML5 , CSS3 , jQuery, Bootstrap, Swiper.js<br> </p></li><li><p><strong>디자인</strong><br>Adobe PhotoShop<br> </p></li><li><p><strong>관리</strong><br>git<br> </p></li><li><p><strong>배포</strong><br>firebase<br> </p></li><br><li>라이프스타일 편집샵 썸원라이프의 온라인 메인페이지 디자인, 퍼블리싱 작업물입니다. 쇼핑몰 구성 정보를 json 통신으로 받아와 동적으로 생성하여 렌더링합니다. 반응형으로 제작하여 다양한 브라우저, 기기에서 원하는 화면을 제공합니다.</li></ul>",
