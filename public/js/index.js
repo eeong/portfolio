@@ -232,7 +232,7 @@ function onGetSlide(r){
 			if($(this).hasClass(`web${i}`)) id = i-1;
 		}
 		if(winWidth < 575) {
-			window.open(r.slides[id].url,)
+			window.open(r.slides[id].url, '_blank')
 		}
 		else {
 		html = 	'<div class="detail-bg"></div>'
